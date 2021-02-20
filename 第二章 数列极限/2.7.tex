@@ -169,19 +169,44 @@
         $n\geqslant2$时成立:$1+1+\frac{1}{2!}+\cdots+\frac{1}{n!}+\frac{1}{n!n}=
         3-\frac{1}{2!1\cdot2}-\cdots-\frac{1}{n!(n-1)n}$;
         \begin{solution}
+            也即证$\frac{1}{2!}+\cdots+\frac{1}{n!}+\frac{1}{n!n}=1-\frac{1}{2!1\cdot2}-\cdots-\frac{1}{n!(n-1)n}$
+
+            用数归,显然$n=2$时$\frac{1}{2!}+\frac{1}{2!2}=1-\frac{1}{2!1\cdot2}$;
+
+            假设$n=k$时成立,即$\frac{1}{2!}+\cdots+\frac{1}{k!}+\frac{1}{k!k}=1-\frac{1}{2!1\cdot2}-\cdots-\frac{1}{k!(k-1)k}$,
             
+            当$n=k+1$时,$\frac{1}{2!}+\cdots+\frac{1}{k!}+\frac{1}{(k+1)!}+\frac{1}{(k+1)!(k+1)}=
+            1-\frac{1}{2!1\cdot2}-\cdots-\frac{1}{k!(k-1)k}+\frac{1}{(k+1)!}+\frac{1}{(k+1)!(k+1)}-\frac{1}{k!k}$.
+
+            而通分后知$\frac{1}{(k+1)!}+\frac{1}{(k+1)!(k+1)}-\frac{1}{k!k}=-\frac{1}{(k+1)!k(k+1)}$,
+
+            即$\frac{1}{2!}+\cdots+\frac{1}{k!}+\frac{1}{(k+1)!}+\frac{1}{(k+1)!(k+1)}=
+            1-\frac{1}{2!1\cdot2}-\cdots-\frac{1}{k!(k-1)k}-\frac{1}{(k+1)!k(k+1)}$,也即命题对$n=k+1$也成立,
+            由数归知对所有$n\geqslant2$都成立.
         \end{solution}
 
         \part
         $e=3-\lim_{n\to\infty}\sum_{k=0}^n\frac{1}{(k+2)!(k+1)(k+2)}$;
         \begin{solution}
-            
+            由(1)知$3-\lim_{n\to\infty}\sum_{k=0}^n\frac{1}{(k+2)!(k+1)(k+2)}=
+            \lim_{n\to\infty}\left(\sum_{k=0}^n\frac{1}{k!}+\frac{1}{n!n}\right)$
+
+            而前已证$\lim_{n\to\infty}\sum_{k=0}^n\frac{1}{k!}=e$,且显然$\lim_{n\to\infty}\frac{1}{n!n}=0$,
+            由极限的四则运算知等式成立.
         \end{solution}
 
         \part
         用$\sum_{k=0}^n\frac{1}{k!}+\frac{1}{n!n}$计算$e$要比不加上最后一项好得多.
         \begin{solution}
-            
+            由(1)的右边可以看出$\lim_{n\to\infty}\left(\sum_{k=0}^n\frac{1}{k!}+\frac{1}{n!n}\right)$是大于$e$的.
+
+            也就是说,$\lim_{n\to\infty}\sum_{k=0}^n\frac{1}{k!}$单调增从下方逼近$e$,
+            $\lim_{n\to\infty}\left(\sum_{k=0}^n\frac{1}{k!}+\frac{1}{n!n}\right)$单调减从上方逼近$e$.
+
+            而他们和$e$的误差为$\alpha_n=e-\sum_{k=0}^n\frac{1}{k!}=\sum_{k=n+1}^\infty\frac{1}{k!},
+            \beta_n=\sum_{k=0}^n\frac{1}{k!}+\frac{1}{n!n}-e=\sum_{k=n+1}^\infty\frac{1}{k!(k-1)k}$.
+
+            显然$\beta_n<\alpha_n$也就是说后者收敛得更快.
         \end{solution}
 
     \end{parts}
@@ -189,7 +214,18 @@
     \question
     设$a_n=1+\frac{1}{\sqrt{2}}+\frac{1}{\sqrt{3}}+\cdots+\frac{1}{\sqrt{n}}-2\sqrt{n},n\in N_+$,
     证明:$\{a_n\}$收敛.
+    \begin{solution}
+        $\because\frac{1}{\sqrt{k}}=\frac{2}{2\sqrt{k}}<\frac{2}{\sqrt{k}+\sqrt{k-1}}=2\left(\sqrt{k}-\sqrt{k-1}\right)\Rightarrow 
+        a_n<\left(-\sqrt{0}+\sqrt{1}\right)+\cdots+\left(-\sqrt{n-1}+\sqrt{n}\right)-2\sqrt{n}=0$.
 
+        而考虑$a_{n+1}-a_n$,有差值为$\frac{1}{\sqrt{n+1}}+2(\sqrt{n+1}-\sqrt{n})>0$,故$a_n$单调递增有上界,即$\{a_n\}$收敛.
+    \end{solution}
+
+    \question
+    设已知存在极限$\lim_{n\to\infty}\frac{a_1+a_2+\cdots+a_n}{n}$,证明:$\lim_{n\to\infty}\frac{a_n}{n}=0$.
+    \begin{solution}
+        
+    \end{solution}
 
 \end{questions}
 

@@ -1,0 +1,197 @@
+\documentclass{exam}
+\usepackage{amsmath,amssymb,ctex}
+
+%解除注释\printanswers可以显示答案,解除注释\unframedsolution消去答案带有的框
+\printanswers
+%\unframedsolutions
+\everymath{\displaystyle}
+
+\begin{document}
+
+\begin{center}
+    \Large 第二章\, 数列极限\, 第一组参考题
+\end{center}
+
+\begin{questions}
+
+    \question
+    设$\{a_{2k-1}\},\{a_{2k}\},\{a_{3k}\}$都收敛,证明:$\{a_n\}$收敛.
+    \begin{solution}
+        设$\{a_{2k-1}\}$,收敛到$p$,$\{a_{2k}\}$收敛到$q$,而$\{a_{3k}\}$中可以选出全属于$\{a_{2k-1}\}$或$\{a_{2k}\}$的子列(事实上$\{a_{3k}\}$中的项交替地从$\{a_{2k-1}\}$和$\{a_{2k}\}$中取出),
+        由于收敛数列子列收敛于同一极限,也即$p=q$,而前证得$\{a_{2k-1}\},\{a_{2k}\}$收敛于同一极限则$\{a_n\}$也收敛于同一极限知$\{a_n\}$收敛.
+    \end{solution}
+
+    \question
+    设$\{a_n\}$有界,且满足条件$a_n\leqslant a_{n+2},a_n\leqslant a_{n+3},n\in N_+$,证明:$\{a_n\}$收敛.
+    \begin{solution}
+        由题知$\{a_{2k-1}\},\{a_{2k}\},\{a_{3k}\}$收敛,由上一小题知命题成立.
+    \end{solution}
+
+    \question
+    设$\{a_n+a_{n+1}\}$和$\{a_n+a_{n+2}\}$都收敛,证明:$\{a_n\}$收敛.
+    \begin{solution}
+        由题知$\{a_{n+2}-a_{n+1}\}$也收敛,而实质上这与$\{a_{n+1}-a_n\}$没有区别,与$\{a_{n+1}+a_n\}$相减即得$\{a_n\}$收敛.
+    \end{solution}
+
+    \question
+    设数列$\{a_n\}$收敛于0,又存在极限$\lim _{n\to\infty} \left| \frac {a_{n+1}}{a_n} \right|=a$.证明:$a\leqslant 1$.
+    \begin{solution}
+        反证.
+
+        首先$a_n\neq0$,否则$\frac{a_{n+1}}{a_n}$某项没有意义.
+
+        若$a>1$,则$\exists a'$使得$1<a'<a$,而取$\varepsilon<a-a'$,无论多大的$N$,总
+        $\exists n>N,a_n\geqslant a_N\cdot a^{n-N}>\varepsilon$,与$\{a_n\}$收敛到0矛盾.
+    \end{solution}
+
+    \question
+    设$a_n=\sum\limits _{k=1}^n \left(\sqrt{1+\frac{k}{n^2}}-1\right)$,$n\in N_+$,计算$\lim\limits _{n\to \infty}a_n$.
+    \begin{solution}
+        放缩.
+
+        $a_n=\sum_{k=1}^n \frac{\frac{k}{n^2}}{\sqrt{1+\frac{k}{n^2}}+1}$
+
+        而有$\frac{n+1}{2n}\cdot \frac{1}{\sqrt{1+\frac{1}{n^2}}+1}\leqslant a_n \leqslant \frac{n+1}{2n}\cdot\frac{1}{\sqrt{1+\frac{1}{n}}+1}$(放成同一分母)
+
+        令$n$趋向$\infty$由夹逼定理即知$\lim_{n\to\infty}a_n=\frac{1}{2}$.
+
+        说明:直接放缩会放过$\Longrightarrow n\cdot\left(\sqrt{1+\frac{1}{n^2}}-1\right)=
+        \frac{n\cdot\frac{1}{n^2}}{\sqrt{1+\frac{1}{n^2}}+1}\rightarrow 0$
+    \end{solution}
+
+    \question
+    用$p(n)$表示能整除$n$的素数的个数,证明:$\lim _{n\to \infty}\frac{p(n)}{n}=0$.
+    \begin{solution}
+        设$p_n$为第$n$个质数.可以这样估计一个用于夹逼的上数列:
+
+        当$\prod_{i=1}^{k-1}p_i\leqslant n\leqslant\prod_{i=1}^kp_i$
+        (也就是夹在$p_1p_2\cdots p_{k-1}$和$p_1p_2\cdots p_k$之间),
+
+        则$\frac{p(n)}{n}\leqslant \frac{k}{p_1p_2\cdots p_k}<\frac{k}{k!}$,由夹逼定理知原极限为0.
+
+        说明:事实上这就是一个对$p(n)$的一个估计,换个角度考虑,就是怎么使$\frac{p(n)}{n}$尽可能大,
+        也就是变相估计上界吧.
+    \end{solution}
+    
+    \question
+    设$a_0,a_1,\cdots,a_p$是$p+1$个给定的数,且满足条件$a_0+a_1+\cdots+a_p=0$.求
+
+    $\lim\limits _{n\to \infty}\left(a_0\sqrt{n}+a_1\sqrt{n+1}+\cdots+a_p\sqrt{n+p}\right)$.
+    \begin{solution}
+        
+        $\left|a_0\sqrt{n}+\cdots+a_p\sqrt{n+p}-0\right|=$
+
+        $\left|a_0(\sqrt{n}-\sqrt{n})+a_1(\sqrt{n+1}-\sqrt{n})+\cdots+a_p(\sqrt{n+p}-\sqrt{n})\right|\leqslant$
+
+        $\left|a_0(\sqrt{n}-\sqrt{n})\right|+\left|a_1(\sqrt{n+1}-\sqrt{n})\right|+\cdots=$
+
+        $\left|a_0\cdot0\right|+\left|a_1\cdot\frac{1}{\sqrt{n+1}+\sqrt{n}}\right|+\cdots+\left|\frac{a_p}{\sqrt{n+p}+\sqrt{n}}\right|\to 0$
+
+        故极限为0.
+    \end{solution}
+
+    
+
+    \question
+    证明:当$0<k<1$时,$\lim _{n\to\infty} \left[(1+n)^k-n^k\right]=0$.
+    \begin{solution}
+        显然$0\leqslant(1+n)^k-n^k=n^k\left[(1+\frac{1}{n})^k-1\right]\leqslant 
+        n^k\left[(1+\frac{1}{n})-1\right]=\frac{n^k}{n}\to0$.
+
+        说明:另一思路也可以是证明单调有界,但是没想到怎么证明单调减...
+    \end{solution}
+
+    \question
+    \begin{parts}
+        \part
+        设$\{a_n\}$收敛,令$y_n=n(x_n-x_{n-1}),n\in N_+$,问$\{y_n\}$是否收敛?
+        \begin{solution}
+            不一定.
+            \[y_n=\begin{cases}
+                x_{n-1}+\frac{1}{n}, \, n\text{为完全平方数} \\
+                x_{n-1}, \, \text{其他}
+            \end{cases}\]
+            可知$\{x_n\}$不超过$\sum_{n = 1}^{\infty}\frac{1}{n^2} $,前证它收敛.而对于
+            $\varepsilon<1$,无论多大的$N$总$\exists n>N$且$y_n=1$,即$\{y_n\}$发散.
+        \end{solution}
+
+        \part
+        在上一小题中,若$\{y_n\}$也收敛,证明:$\{y_n\}$收敛于0.
+        \begin{solution}
+            设$\{y_n\}$收敛到$a$,由Stolz知$\left\{\frac{x_n-x_{n-1}}{\frac{1}{n}}\right\}$极限若存在则与
+            $\frac{x_n}{\sum_{i=1}^\infty\frac{1}{i}}$相同,显然此数列收敛到0(分母$\to\infty$),而由题知
+            $\left\{\frac{x_n-x_{n-1}}{\frac{1}{n}}\right\}$收敛,也即$a=0$.
+        \end{solution}
+    \end{parts}
+
+    \question
+    \begin{parts}
+        \part
+        设正数列$\{a_n\}$满足条件$\lim_{n\to\infty}\frac{a_n}{a_{n+1}}=0$,证明:$\{a_n\}$是正无穷大量.
+        \begin{solution}
+            事实上,当$n$足够大时$\left|\frac{a_n}{a_{n+1}}\right|=\frac{a_n}{a_{n+1}}<\varepsilon<1$.
+
+            则当$n>N$时,$\frac{1}{a_n}<\frac{1}{a_N}\cdot\varepsilon^{n-N}$,即
+            $a_n>\frac{a_N}{\varepsilon^{n-N}}>M$成立,($M$为一给定的任意大的数),也即$\{a_n\}$为无穷大量.
+        \end{solution}
+
+        \part
+        设正数列$\{a_n\}$满足条件$\lim_{n\to\infty}\frac{a_n}{a_{n+1}+a_{n+2}}=0$,证明:$\{a_n\}$无界.
+        \begin{solution}
+            反证.假设$\{a_n\}$有上界$M$;而因为$\lim_{n\to\infty}\frac{a_n}{a_{n+1}+a_{n+2}}=0$
+            $\Rightarrow $对$\varepsilon=\frac{1}{4},\exists N$使得当$n>N$时$\frac{a_n}{a_{n+1}+a_{n+2}}<\varepsilon=\frac{1}{4}$.
+            那么可以推出$4a_N<a_{N+1}+a_{N+2},16a_N<a_{N+2}+2a_{N+3}+a_{N+4},\cdots$.
+
+            因为$M$固定,故$\exists m$使得$2^ma_N>M$,即$2^mM<4^ma_N<\underbrace{\cdots}_{2^m\text{个}\{a_n\}\text{中的项}} $.
+
+            由抽屉原理知,至少有一个项$>M$,与假设矛盾.故原命题成立.
+
+            说明:只说无界是正确的,不一定是正无穷大量.$\{a_n\}$可以是$1!,1,2!,1,3!,1,\cdots$,这也满足题设.
+        \end{solution}
+    \end{parts}
+
+    \question
+    证明:$\left(\frac{n}{3}\right)^n<n!<\left(\frac{n}{2}\right)^n$,其中右边的不等式当$n\geqslant 6$时成立.
+    \begin{solution}
+        与2.5练习题7.证法完全类似.
+    \end{solution}
+
+    \question
+    证明:$\left(\frac{n}{e}\right)^n<n!<e\left(\frac{n}{2}\right)^n$.
+    \begin{solution}
+        与2.5练习题7.证法完全类似.
+    \end{solution}
+
+    \question
+    (对于命题2.5.4的改进)证明:
+    \begin{parts}
+        \part
+        $n\geqslant2$时成立:$1+1+\frac{1}{2!}+\cdots+\frac{1}{n!}+\frac{1}{n!n}=
+        3-\frac{1}{2!1\cdot2}-\cdots-\frac{1}{n!(n-1)n}$;
+        \begin{solution}
+            
+        \end{solution}
+
+        \part
+        $e=3-\lim_{n\to\infty}\sum_{k=0}^n\frac{1}{(k+2)!(k+1)(k+2)}$;
+        \begin{solution}
+            
+        \end{solution}
+
+        \part
+        用$\sum_{k=0}^n\frac{1}{k!}+\frac{1}{n!n}$计算$e$要比不加上最后一项好得多.
+        \begin{solution}
+            
+        \end{solution}
+
+    \end{parts}
+
+    \question
+    设$a_n=1+\frac{1}{\sqrt{2}}+\frac{1}{\sqrt{3}}+\cdots+\frac{1}{\sqrt{n}}-2\sqrt{n},n\in N_+$,
+    证明:$\{a_n\}$收敛.
+
+
+\end{questions}
+
+\end{document}
+

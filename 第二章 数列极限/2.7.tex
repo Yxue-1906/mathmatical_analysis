@@ -224,7 +224,51 @@
     \question
     设已知存在极限$\lim_{n\to\infty}\frac{a_1+a_2+\cdots+a_n}{n}$,证明:$\lim_{n\to\infty}\frac{a_n}{n}=0$.
     \begin{solution}
+        (有点取巧?)
+
+        $\lim_{n\to\infty}\frac{a_1+\cdots+a_n}{n}=
+        \lim_{n\to\infty}\frac{a_1+\cdots+a_{n-1}}{n-1}\cdot\frac{n-1}{n}+\frac{a_n}{n}=
+        \lim_{n\to\infty}\frac{a_1+\cdots+a_{n-1}}{n-1}\cdot\frac{n-1}{n}+\lim_{n\to\infty}\frac{a_n}{n}$
+
+        而$\lim_{n\to\infty}\frac{a_1+\cdots+a_{n-1}}{n-1}\cdot\frac{n-1}{n}=\lim_{n\to\infty}\frac{a_1+\cdots+a_n}{n}$
+
+        故$\lim_{n\to\infty}\frac{a_n}{n}=0$.
+    \end{solution}
+
+    \question
+    证明:$\lim_{n\to\infty}(n!)^{1/n^2}=1$.
+    \begin{solution}
+        $\sqrt[n]{n!}<\sqrt[n]{n^n}=n$,而前已证$\lim_{n\to\infty}\sqrt[n]{n}=1$,又显然$(n!)^{1/n^2}>1$,
+        由夹逼定理得命题成立.
+    \end{solution}
+
+    \question
+    设对每个$n$有$x_n<1$和$(1-x_n)x_{n+1}\geqslant\frac{1}{4}$,证明$\{x_n\}$收敛,并求其极限.
+    \begin{solution}
+        (解法类似2.6练习题7.)
         
+        先证$n\geqslant2$时$x_n$都为正数.
+
+        因为$x_n<1$,所以$(1-x_n)>0$恒成立,故$x_{n+1}>0$,也就是说从$n=2$开始$\{x_n\}$都为正数.
+
+        再证$\{x_n\}\leqslant\frac{1}{2}$,
+
+        $(1-x_{n-1})x_n\geqslant\frac{1}{4}\Rightarrow x_n\geqslant\frac{1}{4(1-x_{n-1})}$,
+        但$x_n<1$,所以$\frac{1}{4(1-x_{n-1})}<1\Rightarrow x_{n-1}<\frac{3}{4}$;同理
+        $x_{n-1}<\frac{3}{4}\Rightarrow x_{n-2}<\frac{2}{3}\cdots$,若$x_n<m$,则$x_{n-1}<1-\frac{1}{4m}$,
+        易证这是个单调减趋向$\frac{1}{2}$的序列,令n趋向无穷便得到$\{x_n\}$每一项都$\leqslant\frac{1}{2}$.
+
+        从下方夹逼,
+        
+        $x_1<1\Rightarrow(1-x_1)>0\Rightarrow x_2>0\Rightarrow(1-x_2)<1\Rightarrow x_3>\frac{1}{4}
+        \Rightarrow x_4>\frac{1}{3}\cdots$,同样可证这是一个单调增趋向$\frac{1}{2}$的序列,由夹逼定理知
+        $\{x_n\}$收敛且极限为$\frac{1}{2}$.
+    \end{solution}
+
+    \question
+    设$a_1=b,a_2=c$,再$n\geqslant3$时,$a_n=\frac{a_{n-1}+a_{n-2}}{2}$,证明$\{a_n\}$收敛,并求其极限.
+    \begin{solution}
+        一个是用特征根法解出通项为
     \end{solution}
 
 \end{questions}

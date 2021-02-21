@@ -268,9 +268,38 @@
     \question
     设$a_1=b,a_2=c$,再$n\geqslant3$时,$a_n=\frac{a_{n-1}+a_{n-2}}{2}$,证明$\{a_n\}$收敛,并求其极限.
     \begin{solution}
-        一个是用特征根法解出通项为$a_n=(\frac{1}{3}b+\frac{2}{3}c)+\frac{4}{3}(c-b)(-\frac{1}{2})^n$,
+        一个方法是用特征根法解出通项为$a_n=(\frac{1}{3}b+\frac{2}{3}c)+\frac{4}{3}(c-b)(-\frac{1}{2})^n$,
         令n趋向无穷便得到极限为$\frac{1}{3}b+\frac{2}{3}c$.
+
+        另外也可以像提示中那样证明奇数项和偶数项分别单调互为上下界.
     \end{solution}
+
+    \question
+    设$a,b,c$是三个给定的实数,令$a_1=a,b_1=b,c_1=c$,并以递推公式定义
+    \[a_{n+1}=\frac{b_n+c_n}{2},b_{n+1}=\frac{a_n+c_n}{2},c_{n+1}=\frac{a_n+b_n}{2},n\in N+\].
+    求这三个数列的极限.
+    \begin{solution}
+        注意到有$a_n+b_n+c_n=a+b+c$,且$a_{n+1}-b_{n+1}=-\frac{1}{2}(a_n-b_n)\Rrightarrow
+        a_n-b_n=\left(-\frac{1}{2}\right)^n(a-b)$,同理对$b_n,c_n$也可以得到类似的式子,联立可以解出
+        $\{a_n\},\{b_n\},\{c_n\}$,最后可以得到极限为$\frac{a+b+c}{3}$.
+    \end{solution}
+
+    \question
+    \begin{parts}
+        \part
+        设$a_1>b_1>0,a_{n+1}=\frac{2a_nb_n}{a_n+b_n},b_{n+1}=\sqrt{a_{n+1}b_n},n\in N+$,证明:
+        $\{a_n\}$和$\{b_n\}$收敛于同一极限.
+        \begin{solution}
+            
+        \end{solution}
+
+        \part
+        在$a_1=2\sqrt{3},b_1=3$时,证明上述极限等于单位圆的半周长$\pi$.(这里可以利用极限
+        $\lim_{n\to\infty}n\sin\frac{\pi}{n}=\pi.)$
+        \begin{solution}
+            
+        \end{solution}
+    \end{parts}
 
 \end{questions}
 

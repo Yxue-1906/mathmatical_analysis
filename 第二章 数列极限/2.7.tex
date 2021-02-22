@@ -285,19 +285,40 @@
     \end{solution}
 
     \question
+    注\,\,本题与例题2.3.5完全不同.实际上这就是计算圆周率的Archimedes(阿基米德)-刘徽方法的迭代形式(参见[4,60]).
+    在(2)中的两个数列$\{a_n\}$和$\{b_n\}$就是单位圆的外切和内接正多边形的半周长(请求出边数和$n$的关系).
     \begin{parts}
         \part
         设$a_1>b_1>0,a_{n+1}=\frac{2a_nb_n}{a_n+b_n},b_{n+1}=\sqrt{a_{n+1}b_n},n\in N+$,证明:
         $\{a_n\}$和$\{b_n\}$收敛于同一极限.
         \begin{solution}
-            
+            解法类似例题2.3.5,分别证明$\{a_n\},\{b_n\}$单调且互为上下界.
+
+            $a_n>b_n>0\Rightarrow a_n+b_n>2b_n\Rightarrow 1>\frac{2b_n}{a_n+b_n}\Rightarrow a_n>\frac{2a_nb_n}{a_n+b_n}$
+
+            $a_n>b_n>0\Rightarrow 2a_n>a_n+b_n\Rightarrow a_{n+1}=\frac{2a_nb_n}{a_n+b_n}>b_n\Rightarrow 
+            b_{n+1}=\sqrt{a_{n+1}b_n}>b_n$
+
+            $a_n>b_n\Rightarrow a_{n+1}>\sqrt{a_{n+1}b_n}=b_{n+1}$
+
+            故两者都单调有界,也即收敛.
+
+            任取其中一个递推式,令$n$趋向无穷即得两者极限相同.
         \end{solution}
 
         \part
         在$a_1=2\sqrt{3},b_1=3$时,证明上述极限等于单位圆的半周长$\pi$.(这里可以利用极限
         $\lim_{n\to\infty}n\sin\frac{\pi}{n}=\pi.)$
         \begin{solution}
+            若$\{a_n\}$为$m$边单位圆外切正多边形半周长,$\{b_n\}$为$m$边单位圆内接正多边形半周长,
+            则$a_n=m\tan\frac{2\pi}{2m},b_n=m\sin\frac{2\pi}{2m}$.
+
+            验证知$\frac{2a_nb_n}{a_n+b_n}=a_{n+1}=2m\tan\frac{2\pi}{2(2m)},
+            \sqrt{a_{n+1}b_n}=b_{n+1}=2m\sin\frac{2\pi}{2(2m)}$,即下一项为$2m$边正多边形的半周长.
+
+            计算知$a_1,b_1$分别为正六边形外切(内接)圆半周长,故$a_n=6\cdot2^{n-1}\tan\frac{\pi}{6\cdot2^{n-1}},$
             
+            $b_n=6\cdot2^{n-1}\sin\frac{\pi}{6\cdot2^{n-1}}$,由提示知极限为$\pi$.
         \end{solution}
     \end{parts}
 

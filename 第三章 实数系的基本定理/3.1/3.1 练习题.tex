@@ -1,23 +1,18 @@
-\documentclass{exam}
-\usepackage{amsmath,amssymb,ctex}
-
-%uncomment \printanswers to show answers
-\printanswers
-%\unframedsolutions
-\everymath{\displaystyle}
-
+% 使用 BHCexam 文档类，并传递选项
+\documentclass[windows,list,answers]{BHCexam}
+\usepackage{wrapfig}
 \begin{document}
+\everymath{\displaystyle}
+\title{3.1 练习题}
 
-\begin{center}
-    %Title
-    \Large 3.1 \, 确界的概念和确界存在定理
-\end{center}
+\maketitle
 
 \begin{questions}
     %Questions goes here.
     \question
     试证明确界的唯一性.
-    \begin{solution}
+    \begin{solution}{1cm}
+        \methodonly
         反证.不妨设有$a>b$都为$A$上确界,
 
         取$0<\varepsilon<a-b$,则由确界定义知$\exists\, a_n>a-\varepsilon>b$且
@@ -26,56 +21,79 @@
 
     \question
     设对每个$x\in A$成立$x<a$.问:在$\sup A<a$和$\sup A\leqslant a$中哪个是对的?
-    \begin{solution}
+    \begin{solution}{1cm}
+        \methodonly
         后者.显然$\sup A\leqslant a$必然成立.
-        
+
         设$A=\left\{1-(\frac{1}{2})^n\,\bigg\lvert\,n\in N_+\right\}$,
         显然$x<1$对$x\in A$都成立,而无论多小的$\varepsilon$,都$\exists
-        \,n\in N_+\,s.t.\,1-(\frac{1}{2})^n>1-\varepsilon$,即$\sup A=1$.
+            \,n\in N_+\,s.t.\,1-(\frac{1}{2})^n>1-\varepsilon$,即$\sup A=1$.
     \end{solution}
     \question
     设数集$A$以$\beta$为上界,又有数列$\{x_n\}\subset A$和$\lim_{n\to\infty}x_n=\beta.$证明$\beta=\sup A$.
-    \begin{solution}
+    \begin{solution}{1cm}
+        \methodonly
         由收敛定义可知无论多小的$\varepsilon>0$都$\exists\,N\in N_+
-        \,s.t.\,n>N,\beta-x_n<\varepsilon\Rightarrow\beta-\varepsilon<x_n$.
+            \,s.t.\,n>N,\beta-x_n<\varepsilon\Rightarrow\beta-\varepsilon<x_n$.
         这就是上确界定义.
     \end{solution}
     \question
     求下列数集的上确界和下确界:
-    \begin{parts}
-        \part
+    \begin{subquestions}
+        \subquestion
         $\{x\in Q\,\lvert\, x>0\};$
-        \begin{solution}
+        \begin{solution}{1cm}
+            \methodonly
             显然下确界是0,上确界是$+\infty$.
         \end{solution}
-        \part
+
+        \subquestion
         $\{y\,\lvert\, y=x^2,x\in(-\frac{1}{2},1)\};$
+        \begin{solution}{1cm}
+            \methodonly
+            \begin{minipage}{\linewidth}
+                \begin{wrapfigure}{r}{3.5cm}
+                    \vspace{-2.5cm}
+                    \includegraphics[width=3.5cm]{图一.png}
+                    \caption{}
+                \end{wrapfigure}
+                如右图所示,
+                下确界为0,上确界为1.
+            \end{minipage}
 
-        \part
+        \end{solution}
+
+        \subquestion
         $\left\{\left(1+\frac{1}{n}\right)^n \,\bigg\lvert\, n\in N_+\right\};$
+        \begin{solution}{1cm}
+            \methodonly
+            下确界为2,上确界为$e$.
 
-        \part
+            前已证$\left(1+\frac{1}{n}\right)^n$单调递增且极限为$e$.
+        \end{solution}
+
+        \subquestion
         $\{ne^{-n}\,\lvert\, n\in N_+\};$
 
-        \part
+        \subquestion
         $\{\arctan x \,\lvert\, x\in (-\infty,+\infty)\};$
 
-        \part
+        \subquestion
         $\left\{(-1)^n+\frac{1}{n}(-1)^{n+1}\,\biggl\lvert\, n\in N_+\right\};$
 
-        \part
+        \subquestion
         $\left\{1+n\sin\frac{n\pi}{2}\,\bigg\lvert\, n\in N_+\right\}$.
-    \end{parts}
+    \end{subquestions}
 
     \question
     证明:
-    \begin{parts}
-        \part
+    \begin{subquestions}
+        \subquestion
         $\sup\{x_n+y_n\}\leqslant \sup\{x_n\}+\sup\{y_n\}$;
 
-        \part
+        \subquestion
         $\inf\{x_n+y_n\}\geqslant\inf\{x_n\}+\inf\{y_n\}$.
-    \end{parts}
+    \end{subquestions}
 
     \question
     设有两个数集$A$和$B$,且对数集$A$中的任何一个数$x$和数集$B$中的任何一个数$y$成立不等式$x\leqslant y$.
@@ -84,7 +102,7 @@
     \question
     设数集$A$有上界,数集$B=\{x+c\,\lvert\, x\in A\}$,其中$c$是一个常数.证明:
     \[\sup B=\sup A+c,\inf B=\inf A+c.
-        \]
+    \]
 
     \question
     设$A,B$是两个有上界的数集,又有数集$C\subset \{x+y\,\lvert\, x\in A,y\in B\}$,则
@@ -93,13 +111,11 @@
     \question
     设$A,B$是两个有上界的数集,又有数集$C\supset  \{x+y\,\lvert\, x\in A,y\in B\}$,则
     $\sup C\geqslant \sup A+\sup B$.举出成立严格不等号的例子.
-    \begin{solution}
-        
+    \begin{solution}{1cm}
 
-        (合并以上两题可见:当且仅当$C=\{x+y\,\lvert\, x\in A,y\in B\}$时成立$\sup C=\sup A+\sup B$.)
     \end{solution}
+    (合并以上两题可见:当且仅当$C=\{x+y\,\lvert\, x\in A,y\in B\}$时成立$\sup C=\sup A+\sup B$.)
 
 \end{questions}
 
 \end{document}
-

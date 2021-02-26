@@ -3,6 +3,6 @@
 
 如果发现某些答案有问题欢迎提出issue呀
 
-`tex文件中掉注释\printanswers可以当作题目来看.`
+~~tex文件中掉注释\printanswers可以当作题目来看.~~
 
 换了个宏包[BHCexam](http://docs.mathcrowd.cn/advances/bhcexam.html),取消掉documentclass选项中的answers即可消去答案.

@@ -13,8 +13,55 @@
     一个闭区间套和相应的收敛子列.又问: 你能否用这样的方法在这个例子中找出3个收敛子列?
     \begin{solution}{1cm}
         \methodonly
+        顺着例题操作来即可.
+
+        取中点将$[-1,1]$分成两部分,两边都具有无穷多项,任取一边,不妨设取了$[0,1]$,
+        则之后只能取$[\frac{1}{2},1],[\frac{3}{4},1],\cdots$.
+
+        不能用这个方法获得3个收敛子列.在第一次选择之后就没得选择了( 按这个方法的流程
+        来的话).
+    \end{solution}
+
+    \question
+    如闭区间套定理中的闭区间套改为开区间套$\{(a_n,b_n)\}$,其他条件不变,则可以举出例子
+    说明结论不成立.
+    \begin{solution}{1cm}
+        \methodonly
+        如闭区间套$\left\{(0,(\frac{1}{2})^n)\right\}$,显然$0\notin 
+        \left\{(0,(\frac{1}{2})^n)\right\}$,而对$(0,\frac{1}{2})$之间的任意数,都
+        存在N使$n>N$时该数不在之后的区间套中.
+
+        也就是说$\textstyle\bigcap_{n=1}^\infty\left\{(0,(\frac{1}{2})^n)\right\}=
+        \emptyset $
+    \end{solution}
+
+    \question
+    如$\{(a_n,b_n)\}$为开区间套,数列$\{a_n\}$严格单调递增,数列$\{b_n\}$严格单调减少,
+    又满足条件$a_n<b_n,n\in \mathsf{N}_+$,证明
+    $\textstyle\bigcap_{n=1}^\infty(a_n,b_n)\neq\emptyset$.
+    \begin{solution}{1cm}
+        \methodonly
+        显然$\{a_n\},\{b_n\}$都是单调有界数列,不妨设分别收敛到$a,b$.
+
+        如果$a\neq b$,则取$\xi \in (a,b)$即可;否则取$\xi=a=b$,由题知对任意n始终成立
+        $a_n<\xi<b_n$,也即$\xi\in\textstyle\bigcap_{n=1}^\infty(a_n,b_n)$.
+
+        故结论成立.
+    \end{solution}
+
+    \question
+    用闭区间套定理证明确界存在定理.
+    \begin{solution}{1cm}
+        \methodonly
         
     \end{solution}
+    
+    \question
+    用闭区间套定理证明单调有界数列的收敛定理.
+    \begin{solution}{1cm}
+        \methodonly
+    \end{solution}
+
 \end{questions}
 
 \end{document}

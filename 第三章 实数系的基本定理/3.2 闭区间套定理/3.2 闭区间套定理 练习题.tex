@@ -1,6 +1,7 @@
-% 使用 BHCexam 文档类，并传递选项
 \documentclass[windows,list,answers]{BHCexam}
-\usepackage{wrapfig}
+\usepackage{fontspec,wrapfig,xunicode-addon}
+\setmainfont{Yu Mincho}
+\setCJKsansfont{STSong}
 \begin{document}
 \everymath{\displaystyle}
 \title{3.2 闭区间套定理\quad 练习题}
@@ -53,13 +54,26 @@
     用闭区间套定理证明确界存在定理.
     \begin{solution}{1cm}
         \methodonly
+        参照Bolzano二分法,$[a_1,b_1]$中$a_1$从$A$中选出,$b_1$为任意一个上界.
+        如果相等则结束,$a_1=b_1$即为上确界.
+
+        如果不等则取中点,若$A$中存在更大的数则令$a_2=\frac{a_1+b_1}{2}$,否则
+        令$b_2=\frac{a_1+b_1}{2}$.按此流程下去知$[a_n,b_n]$满足
         
+        \textcircled{1}区间套长度趋0
+        
+        \textcircled{2}$\textstyle\bigcap_{n=1}^\infty[a_n,b_n]$中元素满足$\geqslant A$
+        中所有元素且$\leqslant $所有上界.
+        
+        由闭区间套定理知最后得到的单点集中元素即为所求上确界.下确界做法类似.
     \end{solution}
     
     \question
     用闭区间套定理证明单调有界数列的收敛定理.
     \begin{solution}{1cm}
         \methodonly
+        如果数列单调递增有上界,则类似上题,从$\{a_n\}$中任取一个作为初始区间套下界,
+        任取一个上界作为初始区间套上界,再遵照Bolzano二分法即可得到结论.单调递减类似.
     \end{solution}
 
 \end{questions}

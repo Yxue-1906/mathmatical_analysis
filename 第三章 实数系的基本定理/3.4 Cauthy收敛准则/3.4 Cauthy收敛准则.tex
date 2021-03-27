@@ -1,4 +1,4 @@
-\documentclass[cn,chinese,fontset]{elegantbook}
+\documentclass[cn,chinese,founder]{elegantbook}
 \usepackage{wrapfig}
 \everymath{\displaystyle}
 
@@ -7,7 +7,7 @@
         \section{Cauthy收敛准则}
         
         \begin{definition}{基本数列}{Cauchy Sequence}
-            称数列$\{x_n\}$为\textbf{基本数列}(或\textbf{Cauthy数列}),如果对每个$\varepsilon>0$,存在$N$,使得对每一对正整数$n,m>N$,成立估计式$\lvert a_n-a_m\rvert<\varepsilon$.
+            称数列$\{x_n\}$为基本数列(或Cauthy数列),如果对每个$\varepsilon>0$,存在$N$,使得对每一对正整数$n,m>N$,成立估计式$\lvert a_n-a_m\rvert<\varepsilon$.
         \end{definition}
         
         \begin{theorem}{Cauthy收敛准则}{Cauthy Theorem} 
@@ -15,7 +15,7 @@
         \end{theorem}
         
         \begin{definition}{压缩映射}{Contraction Mapping}
-            设函数$f$在区间$[a,b]$上定义,$f([a,b])\subset [a,b]$,并存在一个常数$k$,满足$0<k<1$,使得对一切 $x,y\in [a,b]$成立不等式$\lvert f(x)-f(y)\rvert\leqslant k\lvert x-y\rvert$,则称$f$是$[a,b]$上的一个\textbf{压缩映射},称常数$k$为\textbf{压缩常数}.
+            设函数$f$在区间$[a,b]$上定义,$f([a,b])\subset [a,b]$,并存在一个常数$k$,满足$0<k<1$,使得对一切 $x,y\in [a,b]$成立不等式$\lvert f(x)-f(y)\rvert\leqslant k\lvert x-y\rvert$,则称$f$是$[a,b]$上的一个压缩映射,称常数$k$为压缩常数.
         \end{definition}
         \begin{theorem}{压缩映射原理}{Contraction Mapping Theorem}
             设$f$是$[a,b]$上的一个压缩映射,则
@@ -34,7 +34,7 @@
 
                 这个\href{https://www.zhihu.com/question/50995932/answer/866173110}{链接}有更加专业的解释,可以参考下图.
 
-                \includegraphics[width=\linewidth]{Cauthy收敛准则在Q中不成立.png}
+                \includegraphics[width=0.8\linewidth]{Cauthy收敛准则在Q中不成立.png}
             \end{solution}
         
             \subsection{练习题}
@@ -48,7 +48,7 @@
                     \end{solution}
                     \item 对所有$n,p\in N_+$,成立不等式$\lvert x_{n+p}-x_n\rvert\leqslant\frac{p}{n}$;
                     \begin{solution}
-                        不一定是.显然基本数列满足这个条件,但例如$a_n=\sum_{i=1}^{n}\frac{1}{i}$,显然成立题设条件,甚至我们可以直接得到估计,但是我们知道$\lim_{n\to\infty}a_n=+\infty$,所以这不一定是基本数列.
+                        不一定是.显然基本数列满足这个条件,但例如$x_n=\sum_{i=1}^{n}\frac{1}{i}$,显然成立题设条件,甚至我们可以直接得到估计,但是我们知道$\lim_{n\to\infty}x_n=+\infty$,所以这不一定是基本数列.
                     \end{solution}
                     \item 对所有$n,p\in N_+$,成立不等式$\lvert x_{n+p}-x_n\rvert\leqslant\frac{p}{n^2}$;
                     \begin{solution}
@@ -56,8 +56,70 @@
                     \end{solution}
                     \item 对每个正整数$p$,成立$\lim_{n\to\infty}(x_n-x_{n+p})=0$.
                     \begin{solution}
-                        不一定是.
+                        不一定是.例如(2)中的例子$x_n=\sum_{i=1}^{n}\frac{1}{i}$,对每个固定的$p$都满足题设,但它不是基本数列.
                     \end{solution}
                 \end{enumerate}
             \end{exercise}
+
+            \begin{exercise}
+                用对偶法则于数列收敛的Cauthy收敛准则,以正面方式写出数列发散的充分必要条件.
+            \end{exercise}
+            \begin{solution}
+
+                Cauthy收敛准则:$\forall \varepsilon>0,\exists N\in N_+$,当$ n,m>N\rightarrow\lvert x_n-x_m\rvert<\varepsilon\Longleftrightarrow \exists x\in R,\lim_{n\to\infty}x_n=x$;
+
+                数列发散充要条件:数列$\{x_n\}$发散$\Longleftrightarrow \exists\varepsilon>0,\forall N\in N_+,\exists n,m>N,\lvert x_n-x_m\rvert\geqslant \varepsilon$.
+            \end{solution}
+
+            \begin{exercise}
+                证明下列数列为基本数列,因此都是收敛数列:
+                \begin{enumerate}
+                    \item $a_n=1+\frac{1}{2!}+\frac{1}{3!}+\cdots+\frac{1}{n!},n\in N_+$;
+                    \begin{solution}
+                        不妨设$m\geqslant n>0$,而显然$\lvert a_m-a_n\rvert=\frac{1}{(n+1)!}+\cdots+\frac{1}{m!}<\frac{1}{2^{n+1}}+\cdots+\frac{1}{2^m}$,而后者是收敛的,知对任意$\varepsilon$都可以找到题目需要的$N$.
+                    \end{solution}
+                    \item $b_n=1-\frac{1}{2}+\frac{1}{3}-\cdots+(-1)^{n+1}\frac{1}{n},n\in N_+$;
+                    \begin{solution}
+                        $\lvert x_m-x_n\rvert=\left|(-1)^{n+2}\frac{1}{n+1}+\cdots+(-1)^{m+1}\frac{1}{m}\right|$,若$m-n$为奇数,则知从第二项开始可以每两项凑成一对,而且他们都与第一项正负相反;同时$\lvert x_m-x_n\rvert$与第一项同正负(因为最后一项和第一项同正负,而去掉第一项之后又可以两两凑成一对,这样的对子和第一项同正负),即$\big\lvert (-1)^{n+2}\frac{1}{n+1}+\cdots+(-1)^{m+1}\frac{1}{m}\big\rvert<\lvert \frac{1}{n+1}\rvert$.
+
+                        例如$\left|1-\frac{1}{2}+\frac{1}{3}\right|=\underbrace{\left|(1-\frac{1}{2})+\frac{1}{3}\right|}_{\text{可以看出此式与1同号}}=\underbrace{\left|1+(-\frac{1}{2}+\frac{1}{3})\right|}_{\text{可以看出绝对值小于1}}$.
+
+                        如果$m-n$为偶数,则两两凑成一对即知式子绝对值小于第一项绝对值.综上只需取$N$使得$\frac{1}{n+1}<\varepsilon$即可.
+                    \end{solution}
+                    \item $c_n=\frac{\sin2x}{2(2+\sin2x)}+\frac{\sin3x}{3(3+\sin3x)}+\cdots+\frac{\sin nx}{n(n+\sin nx)},n\in N_+$.
+                    \begin{solution}
+                        显然有$\left|x_m-x_n\right|\leqslant\left|\frac{1}{(n+1)(n)}+\frac{1}{m(m-1)}\right|$,裂项相消即可.
+                    \end{solution}
+                \end{enumerate}
+            \end{exercise}
+
+            \begin{exercise}
+                设$a_n=\sin1+\frac{\sin2}{2!}+\cdots+\frac{\sin n}{n!},n\in N_+$,证明:
+                \begin{enumerate}
+                    \item 数列$\{a_n\}$有界,但不单调;
+                    \begin{solution}
+                        显然$a_n$不单调;而$a_n\leqslant\left|\sin1\right|+\cdots+\left|\frac{\sin n}{n!}\right|\leqslant\frac{1}{1!}+\cdots+\frac{1}{n!}$,由$\sum_{i=1}^\infty\frac{1}{i!}$收敛知$\{a_n\}$有界.
+                    \end{solution}
+                    \item $\{a_n\}$收敛.
+                    \begin{solution}
+                        任意两项之差绝对值可以按照(1)放缩,由$\sum_{i=1}^\infty\frac{1}{i!}$收敛知使差绝对值$<\varepsilon$的$N$是存在的,按照Cauthy收敛准则知$\{a_n\}$收敛.
+                    \end{solution}
+                \end{enumerate}
+            \end{exercise}
+
+            \begin{exercise}
+                设从某个数列$\{x_n\}$定义$x_n=\sum_{k=1}^na_k,y_n=\sum_{k=1}^n\left|a_k\right|,n\in N_+$,若数列$\{y_n\}$收敛,证明数列$\{x_n\}$也收敛.
+
+                (本题可以看成是上一题和例题3.4.1的推广.)
+            \end{exercise}
+            \begin{solution}
+                有$\left|x_m-x_n\right|\leqslant y_m-y_n$,而因为$\{y_n\}$收敛,由Cauthy收敛准则知对任意$\varepsilon$可以找到$N$使$y_m-y_n<\varepsilon$,而根据前边不等式知这个$N$对$\{x_n\}$也成立,即$\{x_n\}$也是基本数列,故$\{x_n\}$收敛.
+            \end{solution}
+
+            \begin{exercise}
+                设$S_n=1+\frac{1}{2^p}+\frac{1}{3^p}+\cdots+\frac{1}{n^p},n\in N_+$,其中$p\leqslant 1$,证明$\{S_n\}$发散.
+            \end{exercise}
+            \begin{solution}
+                
+            \end{solution}
 \end{document}

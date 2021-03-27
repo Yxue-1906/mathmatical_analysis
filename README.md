@@ -6,4 +6,4 @@
 ~~tex文件中掉注释\printanswers可以当作题目来看.~~
 
 ~~换了个宏包[BHCexam](http://docs.mathcrowd.cn/advances/bhcexam.html)~~
-又换了个宏包[elegantbook](https://github.com/ElegantLaTeX/ElegantBook),取消掉documentclass选项中的answers即可消去答案.
+又换了个宏包[elegantbook](https://github.com/ElegantLaTeX/ElegantBook),将宏包选项中的result设置为noanswer即可消去答案.

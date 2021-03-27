@@ -1,32 +1,81 @@
-\documentclass[cn]{elegantbook}
+\documentclass[cn,chinese,fontset]{elegantbook}
 \usepackage{wrapfig}
+\everymath{\displaystyle}
 
 \begin{document}
-
 \tableofcontents
 
     \chapter{实数系的基本定理}
-    \section{凝聚定理}
-        \subsection{思考题}
+        \section{闭区间套定理}
+            \subsection{练习题}
+            \begin{exercise}
+                如果数列是$\{(-1)^n\}$,开始的区间是$[-1,1]$.试用例题3.2.2中的方法具体找出一个闭区间套和相应的收敛子列.又问: 你能否用这样的方法在这个例子中找出3个收敛子列?
+            \end{exercise}
+            \begin{solution}
+                顺着例题操作来即可.
+
+                取中点将$[-1,1]$分成两部分,两边都具有无穷多项,任取一边,不妨设取了$[0,1]$,则之后只能取$[\frac{1}{2},1],[\frac{3}{4},1],\cdots$.
+
+                不能用这个方法获得3个收敛子列.在第一次选择之后就没得选择了(按这个方法的流程来的话).
+            \end{solution}
+
+            \begin{exercise}
+                如闭区间套定理中的闭区间套改为开区间套$\{(a_n,b_n)\}$,其他条件不变,则可以举出例子说明结论不成立.
+            \end{exercise}
+            \begin{solution}
+                如闭区间套$\left\{(0,(\frac{1}{2})^n)\right\}$,显然$0\notin\left\{(0,(\frac{1}{2})^n)\right\}$,而对$(0,\frac{1}{2})$之间的任意数,都存在N使$n>N$时该数不在之后的区间套中.
+
+                也就是说$\textstyle\bigcap_{n=1}^\infty\left\{(0,(\frac{1}{2})^n)\right\}=\varnothing $
+            \end{solution}
+
+            \begin{exercise}
+                如$\{(a_n,b_n)\}$为开区间套,数列$\{a_n\}$严格单调递增,数列$\{b_n\}$严格单调减少,
+                又满足条件$a_n<b_n,n\in \mathsf{N}_+$,证明$\textstyle\bigcap_{n=1}^\infty(a_n,b_n)\neq\varnothing$.
+            \end{exercise}
+            \begin{solution}
+                显然$\{a_n\},\{b_n\}$都是单调有界数列,不妨设分别收敛到$a,b$.
+
+                如果$a\neq b$,则取$\xi \in (a,b)$即可;否则取$\xi=a=b$,由题知对任意n始终成立$a_n<\xi<b_n$,也即$\xi\in\textstyle\bigcap_{n=1}^\infty(a_n,b_n)$.
+
+                故结论成立.
+            \end{solution}
+
+            \begin{exercise}
+                用闭区间套定理证明确界存在定理.
+            \end{exercise}
+            \begin{solution}
+                参照Bolzano二分法,$[a_1,b_1]$中$a_1$从$A$中选出,$b_1$为任意一个上界.如果相等则结束,$a_1=b_1$即为上确界.
+
+                如果不等则取中点,若$A$中存在更大的数则令$a_2=\frac{a_1+b_1}{2}$,否则令$b_2=\frac{a_1+b_1}{2}$.按此流程下去知$[a_n,b_n]$满足
+                
+                \circled{1}区间套长度趋0
+                
+                \circled{2}$\textstyle\bigcap_{n=1}^\infty[a_n,b_n]$中元素满足$\geqslant A$中所有元素且$\leqslant $所有上界.
+                
+                由闭区间套定理知最后得到的单点集中元素即为所求上确界.下确界做法类似.
+            \end{solution}
+            
+            \begin{exercise}
+                用闭区间套定理证明单调有界数列的收敛定理.
+            \end{exercise}
+            \begin{solution}
+                如果数列单调递增有上界,则类似上题,从$\{a_n\}$中任取一个作为初始区间套下界,任取一个上界作为初始区间套上界,再遵照Bolzano二分法即可得到结论.单调递减类似.
+            \end{solution}
+        \section{凝聚定理}
+            \subsection{思考题}
             \begin{example}
                 凝聚定理在实数系中成立,在有理数集$\mathbb{Q} $中不成立.
             \end{example}
             \begin{solution}
-                这个在$\mathbb{Q}$中不成立指的是无法收敛到$\mathbb{Q}$中的某个数.
-                也就是说凝聚定理的基础数列的收敛性不受保证.
+                这个在$\mathbb{Q}$中不成立指的是无法收敛到$\mathbb{Q}$中的某个数.也就是说凝聚定理的基础数列的收敛性不受保证.
                 
-                如$a_n=\sqrt{2}$小数点前n位处截断,即
-                $a_1=1.4,a_2=1.41,a_3=1.414\cdots$
+                如$a_n=\sqrt{2}$小数点前n位处截断,即$a_1=1.4,a_2=1.41,a_3=1.414\cdots$
 
-                这个数列在$\mathbb{Q}$中不收敛.而选出的子列的下标必须单调递增,
-                也就是说无论以何种方式选出的子列在有理数集中都不收敛.
+                这个数列在$\mathbb{Q}$中不收敛.而选出的子列的下标必须单调递增,也就是说无论以何种方式选出的子列在有理数集中都不收敛.
 
-                可以猜出,凝聚定理不成立的一个充分条件是原数列在实数系中收敛到
-                $\xi\in\mathbb{R}$且$\xi\notin\mathbb{Q}$,这样所有的子列在
-                实数系中都收敛到$\xi$,这时在有理数集中凝聚定理就不成立了.
+                可以猜出,凝聚定理不成立的一个充分条件是原数列在实数系中收敛到$\xi\in\mathbb{R}$且$\xi\notin\mathbb{Q}$,这样所有的子列在实数系中都收敛到$\xi$,这时在有理数集中凝聚定理就不成立了.
 
-                结合实数系中的凝聚定理,可以改写一下表述,即有理数集上的有界数列
-                不一定能选出收敛到有理数的子列,也即选出的所有收敛子列都收敛到实数.
+                结合实数系中的凝聚定理,可以改写一下表述,即有理数集上的有界数列不一定能选出收敛到有理数的子列,也即选出的所有收敛子列都收敛到实数.
 
                 另一个例子就是
                 \[a_n=\begin{cases}
@@ -35,21 +84,16 @@
                 \end{cases}\]
                 即$a_1=1.4,a_2=1.73,a_3=1.414\cdots$
 
-                这个数列可以选出许多个在实数系中分别收敛到$\sqrt{2}$或$\sqrt{3}$,
-                但这两个数在有理数集中都不存在.
+                这个数列可以选出许多个在实数系中分别收敛到$\sqrt{2}$或$\sqrt{3}$,但这两个数在有理数集中都不存在.
             \end{solution}
         \subsection{练习题}
             \begin{exercise}
-                对于给定的数列$\{x_n\}$和数$a$,证明:在$a$的每个邻域中都有$\{x_n\}$
-            的无穷多项的充分必要条件是,$a$是数列$\{x_n\}$某个子列的极限.
+                对于给定的数列$\{x_n\}$和数$a$,证明:在$a$的每个邻域中都有$\{x_n\}$的无穷多项的充分必要条件是,$a$是数列$\{x_n\}$某个子列的极限.
             \end{exercise}
             \begin{solution}
-                充分性比较显然.由极限定义知,只需将$\varepsilon$取为邻域长度
-                一半即可.下证必要性.
+                充分性比较显然.由极限定义知,只需将$\varepsilon$取为邻域长度一半即可.下证必要性.
                 
-                可以选择一收敛于0的数列$\{\varepsilon_n\}$,
-                由题知对于每个$\varepsilon_n\in\{\varepsilon_n\}$,都可以找出
-                $a_n\in\{x_n\}$且在$a$的邻域内,这样就选出了一个收敛到$a$的子列.
+                可以选择一收敛于0的数列$\{\varepsilon_n\}$,由题知对于每个$\varepsilon_n\in\{\varepsilon_n\}$,都可以找出$a_n\in\{x_n\}$且在$a$的邻域内,这样就选出了一个收敛到$a$的子列.
             \end{solution}
 
             \begin{exercise}
@@ -58,68 +102,133 @@
             \begin{solution}
                 充分性显然.这也是之前证明的数列收敛的必要条件.下证必要性.
 
-                利用Bolzano二分法,不过稍微做些改造.每次将选择的区间分为三个子区间,
-                对于每个具有数列中无穷多项的子区间都进一步分割,
-                如果某次分割时得到不相邻的两个有数列中无穷多项的子区间,
-                那么分别在这两个区间中应用Bolzano二分法即可得到两个趋向不同极限的子列.
+                利用Bolzano二分法,不过稍微做些改造.每次将选择的区间分为三个子区间,对于每个具有数列中无穷多项的子区间都进一步分割,如果某次分割时得到不相邻的两个有数列中无穷多项的子区间,那么分别在这两个区间中应用Bolzano二分法即可得到两个趋向不同极限的子列.
 
-                下证在有限步中可以得到不相邻的两个或以上的子区间.
-                反证,如果在进行的时候每次只能得到一个或者相邻的两个子区间,
-                对于前者可知形成了一个闭区间套,应用闭区间套定理即知数列收敛.矛盾.
-                对于后者,取左子区间的左端和右子区间的右端即可得到一列闭区间套
-                同样可以得到数列收敛.矛盾.
+                下证在有限步中可以得到不相邻的两个或以上的子区间.反证,如果在进行的时候每次只能得到一个或者相邻的两个子区间,对于前者可知形成了一个闭区间套,应用闭区间套定理即知数列收敛.矛盾.对于后者,取左子区间的左端和右子区间的右端即可得到一列闭区间套同样可以得到数列收敛.矛盾.
 
                 综上,定理成立.
             \end{solution}
 
             \begin{exercise}
-                证明:若$\{x_n\}$无界,但不是无穷大量,则存在两个子列,其中一个
-                子列收敛,另一个子列是无穷大量.
+                证明:若$\{x_n\}$无界,但不是无穷大量,则存在两个子列,其中一个子列收敛,另一个子列是无穷大量.
             \end{exercise}
             \begin{solution}
-                由题知,数列无界,则任意选定一$M$,取任意一
-                $\lvert x_{n_1}\rvert>M$作为
-                子列第一项,然后选取
-                $\lvert x_{n_2}\rvert>\lvert x_{n_1}\rvert$且$n_2>n_1$
-                作为子列第二项,重复这个过程即可得到一无穷大量.
+                由题知,数列无界,则任意选定一$M$,取任意一$\lvert x_{n_1}\rvert>M$作为子列第一项,然后选取$\lvert x_{n_2}\rvert>\lvert x_{n_1}\rvert$且$n_2>n_1$作为子列第二项,重复这个过程即可得到一无穷大量.
 
-                由数列并非是无穷大量知,$\exists M>0,\forall N\in \mathbb{N}_+,
-                \exists n>N,\lvert x_n\rvert<M$,这样可以选出一个有界子列,
-                由凝聚定理知可以选出一个收敛于有限极限的子列.
+                由数列并非是无穷大量知,$\exists M>0,\forall N\in \mathbb{N}_+,\exists n>N,\lvert x_n\rvert<M$,这样可以选出一个有界子列,由凝聚定理知可以选出一个收敛于有限极限的子列.
             \end{solution}
 
             \begin{exercise}
                 用凝聚定理证明单调有界数列的收敛定理.
             \end{exercise}
             \begin{solution}
-                由凝聚定理知,单调有界数列存在一收敛子列,设收敛到$a$,
-                且不妨设单调递增.
+                由凝聚定理知,单调有界数列存在一收敛子列,设收敛到$a$,且不妨设单调递增.
 
-                对于任意小的$\varepsilon>0$,由于子列收敛,可以得到$N_k$
-                使得$n_k>N_k$时$\lvert x_{n_k}-a\rvert<\varepsilon$.
-                由于数列$\{x_n\}$单调,则$n>N_k$的任意$x_n$,都有
-                $x_{n_k}<x_n<x_{n_{k+1}}$,也即也成立$\lvert x_n-a\rvert<\varepsilon$.
-                也即$\{x_n\}$收敛到$a$.
+                对于任意小的$\varepsilon>0$,由于子列收敛,可以得到$N_k$使得$n_k>N_k$时$\lvert x_{n_k}-a\rvert<\varepsilon$.由于数列$\{x_n\}$单调,则$n>N_k$的任意$x_n$,都有$x_{n_k}<x_n<x_{n_{k+1}}$,也即也成立$\lvert x_n-a\rvert<\varepsilon$.也即$\{x_n\}$收敛到$a$.
 
                 证毕.
             \end{solution}
     
     \section{Cauthy收敛准则}
-        \subsection{思考题}
+        
+        \begin{definition}{基本数列}{Cauchy Sequence}
+            称数列$\{x_n\}$为基本数列(或Cauthy数列),如果对每个$\varepsilon>0$,存在$N$,使得对每一对正整数$n,m>N$,成立估计式$\lvert a_n-a_m\rvert<\varepsilon$.
+        \end{definition}
+        
+        \begin{theorem}{Cauthy收敛准则}{Cauthy Theorem} 
+            数列收敛的充分必要条件是该数列为基本数列.
+        \end{theorem}
+        
+        \begin{definition}{压缩映射}{Contraction Mapping}
+            设函数$f$在区间$[a,b]$上定义,$f([a,b])\subset [a,b]$,并存在一个常数$k$,满足$0<k<1$,使得对一切 $x,y\in [a,b]$成立不等式$\lvert f(x)-f(y)\rvert\leqslant k\lvert x-y\rvert$,则称$f$是$[a,b]$上的一个压缩映射,称常数$k$为压缩常数.
+        \end{definition}
+        \begin{theorem}{压缩映射原理}{Contraction Mapping Theorem}
+            设$f$是$[a,b]$上的一个压缩映射,则
+            \begin{enumerate}
+                \item $f$在$[a,b]$中存在唯一的不动点$\xi=f(\xi)$;
+                \item 由任何初始值$a_0\in[a,b]$和递推公式$a_{n+1}=f(a_n),n\in N_+$生成的数列$\{a_n\}$一定收敛于$\xi$;
+                \item 成立估计式$\lvert a_n-\xi\rvert\leqslant\frac{k}{1-k}\lvert a_n-a{n-1}\rvert$和$\lvert a_n-\xi\rvert\leqslant\frac{k^n}{1-k}\lvert a_1-a_0\rvert$(即事后估计与先验估计).
+            \end{enumerate}
+        \end{theorem}
+            \subsection{思考题}
             \begin{example}
-                Cauthy收敛准则在有理数集$\mathbb{Q}$中不成立.
+                Cauthy收敛准则在有理数集$\mathbb{Q}$中不不成立.
             \end{example}
             \begin{solution}
-                
+                原因和上一节相同,都是可能存在在实数系中的极限但是不在有理数集中.
+
+                这个\href{https://www.zhihu.com/question/50995932/answer/866173110}{链接}有更加专业的解释,可以参考下图.
+
+                \includegraphics[width=0.8\linewidth]{第三章 实数系的基本定理/3.4 Cauthy收敛准则/Cauthy收敛准则在Q中不成立.png}
             \end{solution}
         
             \subsection{练习题}
             \begin{exercise}
-                满足以下条件的数列$\{x_n\}$是否一定是基本数列?若回答"是",请做出证明;
-                若回答"不一定是",请举出反例:
+                满足以下条件的数列$\{x_n\}$是否一定是基本数列?若回答"是",请做出证明;若回答"不一定是",请举出反例:
                 \begin{enumerate}
                     \item 对每个$\varepsilon>0$,存在$N$,当$n>N$是,成立
                     $\lvert x_n-x_N\rvert<\varepsilon$;
+                    \begin{solution}
+                        是.对于任意$\varepsilon>0$,由题设知可以得到$N$,使得当$n>N$时成立$\lvert x_n-x_N\rvert<\frac{\varepsilon}{2},\lvert x_m-x_N\rvert<\frac{\varepsilon}{2}$,则$\lvert x_n-x_m\rvert<\lvert x_n-x_N\rvert+\lvert x_m-x_N\rvert<\varepsilon$.
+                    \end{solution}
+                    \item 对所有$n,p\in N_+$,成立不等式$\lvert x_{n+p}-x_n\rvert\leqslant\frac{p}{n}$;
+                    \begin{solution}
+                        不一定是.显然基本数列满足这个条件,但例如$x_n=\sum_{i=1}^{n}\frac{1}{i}$,显然成立题设条件,甚至我们可以直接得到估计,但是我们知道$\lim_{n\to\infty}x_n=+\infty$,所以这不一定是基本数列.
+                    \end{solution}
+                    \item 对所有$n,p\in N_+$,成立不等式$\lvert x_{n+p}-x_n\rvert\leqslant\frac{p}{n^2}$;
+                    \begin{solution}
+                        是.根据题设,我们可以得到更精确的估计:$\lvert x_{n+p}-x_n\rvert<\lvert x_{n+p}-x_{n+p-1}\rvert+\cdots+\lvert x_{n+1}-x_{n}\rvert\leqslant\sum_{i=n}^{n+p-1}\frac{1}{i^2}$.根据我们之前得到的结论,$S_n=\sum_{i=1}^{\infty}\frac{1}{i^2}$收敛,所以只需$N$足够大就可以得到$\lvert x_{n+p}-x_n\rvert<S_{n+p}-S_n<\varepsilon$.
+                    \end{solution}
+                    \item 对每个正整数$p$,成立$\lim_{n\to\infty}(x_n-x_{n+p})=0$.
+                    \begin{solution}
+                        不一定是.例如(2)中的例子$x_n=\sum_{i=1}^{n}\frac{1}{i}$,对每个固定的$p$都满足题设,但它不是基本数列.
+                    \end{solution}
+                \end{enumerate}
+            \end{exercise}
+
+            \begin{exercise}
+                用对偶法则于数列收敛的Cauthy收敛准则,以正面方式写出数列发散的充分必要条件.
+            \end{exercise}
+            \begin{solution}
+
+                Cauthy收敛准则:$\forall \varepsilon>0,\exists N\in N_+$,当$ n,m>N\rightarrow\lvert x_n-x_m\rvert<\varepsilon\Longleftrightarrow \exists x\in R,\lim_{n\to\infty}x_n=x$;
+
+                数列发散充要条件:数列$\{x_n\}$发散$\Longleftrightarrow \exists\varepsilon>0,\forall N\in N_+,\exists n,m>N,\lvert x_n-x_m\rvert\geqslant \varepsilon$.
+            \end{solution}
+
+            \begin{exercise}
+                证明下列数列为基本数列,因此都是收敛数列:
+                \begin{enumerate}
+                    \item $a_n=1+\frac{1}{2!}+\frac{1}{3!}+\cdots+\frac{1}{n!},n\in N_+$;
+                    \begin{solution}
+                        不妨设$m\geqslant n>0$,而显然$\lvert a_m-a_n\rvert=\frac{1}{(n+1)!}+\cdots+\frac{1}{m!}<\frac{1}{2^{n+1}}+\cdots+\frac{1}{2^m}$,而后者是收敛的,知对任意$\varepsilon$都可以找到题目需要的$N$.
+                    \end{solution}
+                    \item $b_n=1-\frac{1}{2}+\frac{1}{3}-\cdots+(-1)^{n+1}\frac{1}{n},n\in N_+$;
+                    \begin{solution}
+                        $\lvert x_m-x_n\rvert=\left|(-1)^{n+2}\frac{1}{n+1}+\cdots+(-1)^{m+1}\frac{1}{m}\right|$,若$m-n$为奇数,则知从第二项开始可以每两项凑成一对,而且他们都与第一项正负相反;同时$\lvert x_m-x_n\rvert$与第一项同正负(因为最后一项和第一项同正负,而去掉第一项之后又可以两两凑成一对,这样的对子和第一项同正负),即$\big\lvert (-1)^{n+2}\frac{1}{n+1}+\cdots+(-1)^{m+1}\frac{1}{m}\big\rvert<\lvert \frac{1}{n+1}\rvert$.
+
+                        例如$\left|1-\frac{1}{2}+\frac{1}{3}\right|=\underbrace{\left|(1-\frac{1}{2})+\frac{1}{3}\right|}_{\text{可以看出此式与1同号}}=\underbrace{\left|1+(-\frac{1}{2}+\frac{1}{3})\right|}_{\text{可以看出绝对值小于1}}$.
+
+                        如果$m-n$为偶数,则两两凑成一对即知式子绝对值小于第一项绝对值.综上只需取$N$使得$\frac{1}{n+1}<\varepsilon$即可.
+                    \end{solution}
+                    \item $c_n=\frac{\sin2x}{2(2+\sin2x)}+\frac{\sin3x}{3(3+\sin3x)}+\cdots+\frac{\sin nx}{n(n+\sin nx)},n\in N_+$.
+                    \begin{solution}
+                        显然有$\left|x_m-x_n\right|\leqslant\left|\frac{1}{(n+1)(n)}+\frac{1}{m(m-1)}\right|$,裂项相消即可.
+                    \end{solution}
+                \end{enumerate}
+            \end{exercise}
+
+            \begin{exercise}
+                设$a_n=\sin1+\frac{\sin2}{2!}+\cdots+\frac{\sin n}{n!},n\in N_+$,证明:
+                \begin{enumerate}
+                    \item 数列$\{a_n\}$有界,但不单调;
+                    \begin{solution}
+                        显然$a_n$不单调;而$a_n\leqslant\left|\sin1\right|+\cdots+\left|\frac{\sin n}{n!}\right|\leqslant\frac{1}{1!}+\cdots+\frac{1}{n!}$,由$\sum_{i=1}^\infty\frac{1}{i!}$收敛知$\{a_n\}$有界.
+                    \end{solution}
+                    \item $\{a_n\}$收敛.
+                    \begin{solution}
+                        任意两项之差绝对值可以按照(1)放缩,由$\sum_{i=1}^\infty\frac{1}{i!}$收敛知使差绝对值$<\varepsilon$的$N$是存在的,按照Cauthy收敛准则知$\{a_n\}$收敛.
+                    \end{solution}
                 \end{enumerate}
             \end{exercise}
 \end{document}

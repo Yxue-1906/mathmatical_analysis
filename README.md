@@ -7,3 +7,5 @@
 
 ~~换了个宏包[BHCexam](http://docs.mathcrowd.cn/advances/bhcexam.html)~~
 又换了个宏包[elegantbook](https://github.com/ElegantLaTeX/ElegantBook),将宏包选项中的result设置为noanswer即可消去答案.
+
+如果想要自己编译tex的话请安装Fonts里的四个字体,否则会出错.

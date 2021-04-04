@@ -1,32 +1,35 @@
-\documentclass[cn,chinese]{elegantbook}
+\documentclass[cn,chinese,founder]{elegantbook}
 \usepackage{wrapfig}
 \everymath{\displaystyle}
 
-\title{test}
-
 \begin{document}
-    \chapter{test}
-        \section{tset}
-            \subsection{test}
-            \begin{exercise}
-                ceshi 
+    \chapter{章节名}
+        \section{节名}
+            \subsection{思考题}
+            \begin{example}
+                思考题一
                 \begin{enumerate}
-                    \item 测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试
-                    测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试
+                    \item 第(1)小问
                     \begin{enumerate}
-                        \item ceshi
+                        \item 第(i)小问
                     \end{enumerate}
-                    \item ceshi
+                    \item 第(2)小问
                 \end{enumerate}
-            \end{exercise}
+            \end{example}
             \begin{wrapfigure}{r}{3.5cm}
-                \vspace{-0.5cm}
+                \vspace{-1.5cm}
                 \includegraphics[width=3.5cm]{example.png}
-                \caption{test}
+                \caption[示例]{示例解答图片}
             \end{wrapfigure}
             \begin{solution}
-                解答解答解答解答解答解答解答解答解答解答解答解答解答解答解答解答解答解答解答解答
-                解答解答解答解答解答解答解答解答解答解答解答解答解答解答解答解答解答解答解答解答解答
-                解答解答解答解答解答解答解答解答
+                解答
+            \end{solution}
+            
+            \subsection{练习题}
+            \begin{exercise}
+                练习题一
+            \end{exercise}
+            \begin{solution}
+                解答
             \end{solution}
 \end{document}

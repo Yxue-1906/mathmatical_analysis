@@ -1,0 +1,28 @@
+\documentclass[cn,chinese,founder]{elegantbook}
+\usepackage{wrapfig}
+\everymath{\displaystyle}
+
+\title{test}
+
+\begin{document}
+    \chapter{实数系的基本定理}
+    \begin{definition}{开覆盖}{Definition}
+        设有$[a,b]\subset\textstyle\bigcup_\alpha\mathcal{O} _\alpha$,其中每个$\mathcal{O}_\alpha$是开区间,则称$\{\mathcal{O}_\alpha\}$是区间$[a,b]$的一个开覆盖.
+    \end{definition}
+    \begin{theorem}{覆盖定理}{Heine-Borel(博雷尔)引理}
+        如果$\{\mathcal{O}_\alpha\}$是区间$[a,b]$的一个开覆盖,则存在$\{\mathcal{O}_\alpha\}$的一个有限子集$\{\mathcal{O}_1,\mathcal{O}_2,\cdots,\mathcal{O}_n\}$,它是区间$[a,b]$的一个开覆盖,也就是说有$[a,b]\subset\textstyle\bigcup_{i=1}^n\mathcal{O}_i$.
+    \end{theorem}
+        \section{覆盖定理}
+            \subsection{思考题}
+            \begin{example}
+                如果将定理中的"每个开区间"改为闭区间,举出不成立的反例.
+            \end{example}
+            \begin{solution}
+                例如$\{\mathcal{O}_i\}$是这样的:$\left\{\mathcal{O}\bigg|\left[\frac{1}{i+1},\frac{1}{i}\right],i\in \mathbb{N}_+\right\}\textstyle\bigcup\left\{[-1,0]\right\}$,很明显$\{\mathcal{O}_i\}$覆盖$\left[0,1\right]$,但是$\{\mathcal{O}_i\}$的任意有限子集都无法覆盖$\left[0,1\right]$.
+            \end{solution}
+
+            \subsection{练习题}
+            \begin{exercise}
+                
+            \end{exercise}
+\end{document}

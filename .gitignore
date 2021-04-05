@@ -1,6 +1,8 @@
 #忽略LaTex自动生成文件
-*.toc
-*.out
-*.aux
-*.log
-*.gz
+*
+!*.tex
+!*.pdf
+!*.png
+!*.TTF
+!*.md
+!latexindent.yaml

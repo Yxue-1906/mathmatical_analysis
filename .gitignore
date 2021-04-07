@@ -5,4 +5,4 @@
 !*.png
 !*.TTF
 !*.md
-!latexindent.yaml
+!defaultSettings.yaml

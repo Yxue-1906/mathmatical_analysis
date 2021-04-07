@@ -5,27 +5,66 @@
 \title{test}
 
 \begin{document}
-    \chapter{实数系的基本定理}
-    \begin{definition}{开覆盖}{Definition}
-        设有$[a,b]\subset\textstyle\bigcup_\alpha\mathcal{O} _\alpha$,其中每个$\mathcal{O}_\alpha$是开区间,则称$\{\mathcal{O}_\alpha\}$是区间$[a,b]$的一个开覆盖.
-    \end{definition}
-    \begin{theorem}{覆盖定理}{Heine-Borel(博雷尔)引理}
-        如果$\{\mathcal{O}_\alpha\}$是区间$[a,b]$的一个开覆盖,则存在$\{\mathcal{O}_\alpha\}$的一个有限子集$\{\mathcal{O}_1,\mathcal{O}_2,\cdots,\mathcal{O}_n\}$,它是区间$[a,b]$的一个开覆盖,也就是说有$[a,b]\subset\textstyle\bigcup_{i=1}^n\mathcal{O}_i$.
-    \end{theorem}
-        \section{覆盖定理}
-            \subsection{思考题}
-            \begin{example}
-                如果将定理中的"每个开区间"改为闭区间,举出不成立的反例.
-            \end{example}
-            \begin{solution}
-                例如$\{\mathcal{O}_i\}$是这样的:$\left\{\mathcal{O}\bigg|\left[\frac{1}{i+1},\frac{1}{i}\right],i\in \mathbb{N}_+\right\}\textstyle\bigcup\left\{[-1,0]\right\}$,很明显$\{\mathcal{O}_i\}$覆盖$\left[0,1\right]$,但是$\{\mathcal{O}_i\}$的任意有限子集都无法覆盖$\left[0,1\right]$.
-            \end{solution}
+\chapter{实数系的基本定理}
+ \begin{definition}{开覆盖}{Definition}
+     设有$[a,b]\subset\textstyle\bigcup_\alpha\mathcal{O} _\alpha$,其中每个$\mathcal{O}_\alpha$是开区间,则称$\{\mathcal{O}_\alpha\}$是区间$[a,b]$的一个开覆盖.
+ \end{definition}
+ \begin{theorem}{覆盖定理}{Heine-Borel(博雷尔)引理}
+     如果$\{\mathcal{O}_\alpha\}$是区间$[a,b]$的一个开覆盖,则存在$\{\mathcal{O}_\alpha\}$的一个有限子集$\{\mathcal{O}_1,\mathcal{O}_2,\cdots,\mathcal{O}_n\}$,它是区间$[a,b]$的一个开覆盖,也就是说有$[a,b]\subset\textstyle\bigcup_{i=1}^n\mathcal{O}_i$.
+ \end{theorem}
+ \section{覆盖定理}
+  \subsection{思考题}
+      \begin{example}
+          如果将定理中的"每个开区间"改为闭区间,举出不成立的反例.
+      \end{example}
+      \begin{solution}
+          例如$\{\mathcal{O}_i\}$是这样的:$\left\{\mathcal{O}\, \bigg|\, \left[\frac{1}{i+1},\frac{1}{i}\right],i\in \mathbb{N}_+\right\}\textstyle\bigcup\left\{[-1,0]\right\}$,很明显$\{\mathcal{O}_i\}$覆盖$\left[0,1\right]$,但是$\{\mathcal{O}_i\}$的任意有限子集都无法覆盖$\left[0,1\right]$.
+      \end{solution}
 
-            \subsection{练习题}
-            \begin{exercise}
-                对开区间$(0,1)$构造一个开覆盖,使得它的每一个有限子集都不能覆盖$(0,1)$.
-            \end{exercise}
-            \begin{solution}
-                这样的开覆盖可以是$\left\{\mathcal{O}\bigg|\left(\frac{1}{i},1\right),i\in\mathbb{N}_+\right\}$.
-            \end{solution}
+  \subsection{练习题}
+      \begin{exercise}
+          对开区间$(0,1)$构造一个开覆盖,使得它的每一个有限子集都不能覆盖$(0,1)$.
+      \end{exercise}
+      \begin{solution}
+          这样的开覆盖可以是$\left\{\mathcal{O}\, \bigg|\, \left(\frac{1}{i},1\right),i\in\mathbb{N}_+\right\}$.
+      \end{solution}
+
+      \begin{exercise}
+          用闭区间套定理证明覆盖定理
+      \end{exercise}
+      \begin{solution}
+          反证.
+
+          如果不存在有限子覆盖,那么将区间分为两半,至少其中一边不存在有限子覆盖;如果都不存在则取其中之一.将操作进行无限次,可以得到一个闭区间套,其长度都是前一个的一半.由闭区间套定理知最终闭区间套的两端会收敛到$\left[ a,b \right]$中的一个数$\varepsilon$.但是根据题设条件,$\left[ a,b \right]$存在开覆盖,对于其中的某一点至少存在一个开区间覆盖它,也即对于单个点一定存在有限子覆盖.矛盾.
+      \end{solution}
+      \begin{note}
+          参照《微积分学教程\,第一卷》P148.
+      \end{note}
+
+      \begin{exercise}
+          用覆盖定理证明闭区间套定理
+      \end{exercise}
+      \begin{solution}
+          闭区间套定理的叙述是:如果一组闭区间$\left\{ \left[a_n,b_n\right] \right\}$满足$\left[a_{n+1},b_{n+1}\right]\subset \left[a_n,b_n\right]$,则$\bigcap_{i=1}\left[a_i,b_i\right]\neq \varnothing $.
+
+          反证,如果闭区间套定理不成立,那么反面叙述为:存在一组闭区间套,$\bigcap_{i=1}\left[a_i,b_i\right]= \varnothing $.
+
+          则此时可以得到$I_2$的一个开覆盖:$A=\left\{\left(a_1,a_2\right),\left(b_2,b_1\right),\left(a_1,a_3\right),\left(b_3,b_1\right),\cdots\right\}$,即第n组两个开区间为$\left(a_1,b_1\right)-\left(a_{n+1},b_{n+1}\right)=\left(a_1,b_1\right)-\bigcap_{i=1}^{n+1}\left[a_i,b_i\right]$拆分出的两个开区间.由于$\bigcap_{i=1}\left[a_i,b_i\right]= \varnothing $,所以这个集合是$\left[a_2,b_2\right]$的一个无限开覆盖.由开覆盖定理,存在一个有限子覆盖同样能够覆盖$\left[a_2,b_2\right]$,不妨设选出的子覆盖为$B=\left\{I_1,I_2,\cdots,I_n\right\}$,由此开区间生成规则可以看出,每个开区间不与闭区间套中自某一n开始的所有闭区间相交,也即对$I_i,\exists\, \left[a_{n_i},b_{n_i}\right],\left[a_{n_i},b_{n_i}\right]\textstyle\bigcup I_i=\varnothing$.由于这是闭区间套,故存在一个最小的闭区间(属于$\left[a_2,b_2\right]$),和B中所有的开区间都不相交,与B是其有限子覆盖矛盾.
+      \end{solution}
+      \begin{note}
+          这一证明想到一半的时候有点摸不着怎么说明A的任意一个有限子集都不可能是$[a_2,b_2]$的开覆盖,这时参照了这个\href{https://blog.csdn.net/qq_45481282/article/details/107568842}{链接}的一部分,另外这个证明也非常巧妙,应该掌握直接根据区间中的每一个点都生成一个对应集合的方法.
+      \end{note}
+
+      \begin{exercise}
+          用覆盖定理证明凝聚定理.
+      \end{exercise}
+      \begin{solution}
+          凝聚定理的否定叙述是:$\exists\, \left\{a_n\right\}$有界,对$\forall\, a>0,\exists\, \varepsilon_0>0$,在$\left(a-\varepsilon_0,a+\varepsilon_0\right)$中只有$\left\{a_n\right\}$的有限项.进一步可以选取足够小的$\varepsilon$使得$\left(a-\varepsilon_0,a+\varepsilon_0\right)$仅有数列中的一项甚至没有项.
+
+          反证.取闭区间为$\left[\inf\left\{a_n\right\},\sup\left\{a_n\right\}\right]$,遍历此区间中的所有点,如果定理不成立则对每个点都可以找到一个开区间满足否定叙述,由于这种取法遍历了所有点,所以$A=\left\{\mathcal{I}_{x,\varepsilon_x}\, |\, \right\}$是闭区间的一个开覆盖.由覆盖定理知存在一个A的有限子集是闭区间开覆盖.然而由取法知A的有限子集的元素的并最多覆盖到$\left\{a_n\right\}$中有限个元素,矛盾.
+      \end{solution}
+
+      \begin{exercise}
+          试对于例题3.5.2的证明举出两个具体例子,即(1)数集$A$无上界;(2)$A$有上界,且有$b<\xi =\sup A$和$\xi \notin A$.
+      \end{exercise}
 \end{document}

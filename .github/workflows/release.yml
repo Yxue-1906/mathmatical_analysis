@@ -1,0 +1,72 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Main
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: config dependency
+        run: |
+          sudo apt update
+          # config fonts
+          sudo apt install ttf-mscorefonts-installer fontconfig unzip -y
+          sudo mkdir -p /usr/share/fonts/myfonts
+          wget http://mirrors.ctan.org/fonts/fandol.zip
+          unzip fandol.zip -d Fonts 
+          sudo cp -r Fonts/* /usr/share/fonts/myfonts
+          sudo mkfontscale
+          sudo mkfontdir
+          sudo fc-cache -fv
+          # replace related .sty file
+          # sudo mv /usr/share/texlive/texmf-dist/tex/latex/elegantbook/elegantbook.cls /usr/share/texlive/texmf-dist/tex/latex/elegantbook/elegantbook.cls.bak
+          sudo mkdir -p /usr/share/texlive/texmf-dist/tex/latex/elegantbook || echo "no this Folder, skip..."
+          sudo cp elegantbook.cls /usr/share/texlive/texmf-dist/tex/latex/elegantbook/elegantbook.cls
+          sudo apt install texlive-full -y
+      
+      # Runs a set of commands using the runners shell
+      - name: build main.pdf
+        if: ${{ success() }}
+        run: |
+          make clean
+          make
+
+      - name: generate tag
+        id: tag
+        run: echo "::set-output name=tag::v$(TZ=UTC-8 date +%Y.%m.%d-%H.%M)"
+      
+      - name: add tag
+        if: ${{ success() }}
+        run: |
+          git tag "${{ steps.tag.outputs.tag }}"
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git push --tag
+        
+      - name: release
+        if: ${{ success() }}
+        uses: ncipollo/release-action@v1
+        with:
+          artifact: "main.pdf"
+          token: ${{ secrets.RElEASE_TOKEN }}
+          tag: ${{ steps.tag.outputs.tag }}
+          

@@ -1,0 +1,55 @@
+\section{闭区间套定理}
+    \subsection{练习题}
+    \begin{exercise}
+        如果数列是$\{(-1)^n\}$,开始的区间是$[-1,1]$.试用例题3.2.2中的方法具体找出一个闭区间套和相应的收敛子列.又问: 你能否用这样的方法在这个例子中找出3个收敛子列?
+    \end{exercise}
+    \begin{solution}
+        顺着例题操作来即可.
+
+        取中点将$[-1,1]$分成两部分,两边都具有无穷多项,任取一边,不妨设取了$[0,1]$,则之后只能取$[\frac{1}{2},1],[\frac{3}{4},1],\cdots$.
+
+        不能用这个方法获得3个收敛子列.在第一次选择之后就没得选择了(按这个方法的流程来的话).
+    \end{solution}
+
+    \begin{exercise}
+        如闭区间套定理中的闭区间套改为开区间套$\{(a_n,b_n)\}$,其他条件不变,则可以举出例子说明结论不成立.
+    \end{exercise}
+    \begin{solution}
+        如闭区间套$\left\{(0,(\frac{1}{2})^n)\right\}$,显然$0\notin\left\{(0,(\frac{1}{2})^n)\right\}$,而对$(0,\frac{1}{2})$之间的任意数,都存在N使$n>N$时该数不在之后的区间套中.
+
+        也就是说$\textstyle\bigcap_{n=1}^\infty\left\{(0,(\frac{1}{2})^n)\right\}=\varnothing $
+    \end{solution}
+
+    \begin{exercise}
+        如$\{(a_n,b_n)\}$为开区间套,数列$\{a_n\}$严格单调递增,数列$\{b_n\}$严格单调减少,
+        又满足条件$a_n<b_n,n\in \mathsf{N}_+$,证明$\textstyle\bigcap_{n=1}^\infty(a_n,b_n)\neq\varnothing$.
+    \end{exercise}
+    \begin{solution}
+        显然$\{a_n\},\{b_n\}$都是单调有界数列,不妨设分别收敛到$a,b$.
+
+        如果$a\neq b$,则取$\xi \in (a,b)$即可;否则取$\xi=a=b$,由题知对任意n始终成立$a_n<\xi<b_n$,也即$\xi\in\textstyle\bigcap_{n=1}^\infty(a_n,b_n)$.
+
+        故结论成立.
+    \end{solution}
+
+    \begin{exercise}
+        用闭区间套定理证明确界存在定理.
+    \end{exercise}
+    \begin{solution}
+        参照Bolzano二分法,$[a_1,b_1]$中$a_1$从$A$中选出,$b_1$为任意一个上界.如果相等则结束,$a_1=b_1$即为上确界.
+
+        如果不等则取中点,若$A$中存在更大的数则令$a_2=\frac{a_1+b_1}{2}$,否则令$b_2=\frac{a_1+b_1}{2}$.按此流程下去知$[a_n,b_n]$满足
+        
+        \circled{1}区间套长度趋0
+        
+        \circled{2}$\textstyle\bigcap_{n=1}^\infty[a_n,b_n]$中元素满足$\geqslant A$中所有元素且$\leqslant $所有上界.
+        
+        由闭区间套定理知最后得到的单点集中元素即为所求上确界.下确界做法类似.
+    \end{solution}
+    
+    \begin{exercise}
+        用闭区间套定理证明单调有界数列的收敛定理.
+    \end{exercise}
+    \begin{solution}
+        如果数列单调递增有上界,则类似上题,从$\{a_n\}$中任取一个作为初始区间套下界,任取一个上界作为初始区间套上界,再遵照Bolzano二分法即可得到结论.单调递减类似.
+    \end{solution}

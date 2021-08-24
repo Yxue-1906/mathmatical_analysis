@@ -16,7 +16,7 @@
 
 ### Windows
 
-- 替换格式文件, 一般来说应当是``%Texlive Install Directory%/\<Year\>/texmf-dist/tex/latex/elegantbook/``
+- 替换格式文件, 一般来说应当是``%Texlive Install Directory%/<Year>/texmf-dist/tex/latex/elegantbook/``
 - 运行``build.py``
 - 执行两次``xelatex main.pdf``即可
 

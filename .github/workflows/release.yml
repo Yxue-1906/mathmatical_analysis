@@ -70,3 +70,10 @@ jobs:
           token: ${{ secrets.RElEASE_TOKEN }}
           tag: ${{ steps.tag.outputs.tag }}
           
+      - name: remove tag
+        if: ${{ failure() }}
+        run: |
+          git tag -d "${{ steps.tag.outputs.tag }}"
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git push --tag

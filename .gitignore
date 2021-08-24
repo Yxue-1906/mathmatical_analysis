@@ -1,0 +1,8 @@
+#忽略LaTex自动生成文件
+*
+!*.tex
+!*.pdf
+!*.png
+!*.TTF
+!*.md
+!defaultSettings.yaml

@@ -295,3 +295,54 @@
          本题与例题2.3.5完全不同.实际上这就是计算圆周率的Archimedes(阿基米德)-刘徽方法的迭代形式.在(2)中的两个数列$\{a_n\}$和$\{b_n\}$就是单位圆的外切和内接正多边形的半周长(请求出边数和$n$的关系).
      \end{note}
 
+ \subsection{第二组}
+     \begin{exercise}
+         设$a_n = \sqrt{1+\sqrt{2+\cdots +\sqrt{n}}}$, $n\in \mathbb{N}_+$, 证明:$\{a_n\}$收敛.
+     \end{exercise}
+     \begin{solution}
+         根据提示, 有$\sqrt{n-1+\sqrt{n}}<\sqrt{n-1+2\sqrt{n-1}+1}=\sqrt{n-1}+1$,再利用$\sqrt{n-1}<2\sqrt{n-2}(n\geqslant 3)$逐层脱去根号, 最后有$\leqslant2+\sqrt{2}$
+     \end{solution}
+     
+     \begin{exercise}
+         证明: 对每个正整数$n$, 成立不等式$\left(1+\frac{1}{n}\right)^n>\sum_{k=0}^n \frac{1}{k!}-\frac{e}{2n}$.
+     \end{exercise}
+     \begin{solution}
+         这里怀疑提示有点问题, 应当为利用$(1-\frac{1}{n})(1-\frac{2}{n})\cdots\geqslant 1-\frac{1}{n}-\frac{2}{n}\cdots$.
+
+         将左边展开, 有$\left(1+\frac{1}{n}\right)^n=1+n\frac{1}{n}+\frac{n(n-1)}{2!}\frac{1}{n^2}+\cdots=1+1+\frac{1\cdot (1-\frac{1}{n})}{2!}+\frac{1\cdot (1-\frac{1}{n})(1-\frac{2}{n})}{3!}\cdots$.
+
+         利用伯努利不等式有$(1-\frac{1}{n})(1-\frac{2}{n})\cdots\geqslant 1-\frac{1}{n}-\frac{2}{n}\cdots=1-\frac{\frac{n(n-1)}{2}}{n}$, 将不等式右边移项, 则只需证$-\frac{1}{2!}\frac{2(2-1)}{2n}-\frac{1}{3!}\frac{3(3-1)}{2n}-\cdots\geqslant-\frac{e}{2n}\Longleftrightarrow\frac{1}{0!}+\frac{1}{1!}+\cdots\leqslant e$, 而这正是我们已经知道的结果.
+     \end{solution}
+
+     \begin{exercise}
+         求极限$\lim_{n\to\infty}n\sin(2\pi n!e)$.
+     \end{exercise}
+     \begin{solution}
+         注意到$n!\frac{1}{k!}$是整数, 利用三角函数的周期性有$n\sin(2\pi n!e)=n\sin[2\pi n!(e-1-1-\frac{1}{2!}-\cdots)]$, 利用2.5.4的误差估计就可以得到$n\sin\frac{2\pi}{n+1}<n\sin(2\pi n!e)<n\sin\frac{2\pi}{n}$, 从夹逼以及三角极限可知答案为$2\pi$.
+     \end{solution}
+
+     \begin{exercise}
+         记$S_n=1+\frac{1}{2}+\cdots+\frac{1}{n}, n\in\mathbb{N}_+$. 用$K_n$表示使$S_k\geqslant n$的最小下标, 求极限$\lim_{n\to\infty}\frac{K_{n+1}}{K_n}$.
+     \end{exercise}
+     \begin{solution}
+         调和级数近似于$\ln n$, 所以对应的$K_n$应当近似于$e^n$,所以答案明显.
+     \end{solution}
+
+     \begin{exercise}
+         设$x_n=\frac{1}{n^2}\sum_{k=0}^n\ln\binom{n}{k} ,n\in\mathbb{N}_+$, 求$\lim_{n\to\infty}x_n$.
+     \end{exercise}
+     \begin{solution}
+         用两次Stolz定理,
+         \begin{align*}
+             \lim_{n\to\infty}x_n 
+             &=\lim_{n\to\infty}\frac{1}{n^2}[(n+1)(\ln 1+\ln 2+\cdots)-2((\ln 1)+(\ln 1+\ln 2)+\cdots)] \\
+             &=\lim_{n\to\infty}\frac{1}{2n+1}[(\ln 1+\ln 2+\cdots+\ln n)+(n+2)\ln(n+1)-2(\ln 1+\ln 2+\cdots+\ln(n+1))] \\
+             &=\lim_{n\to\infty}\frac{1}{2n+1}[(n+1)\ln(n+1)-(\ln 1+\ln 2+\cdots+\ln(n+1))] \\
+             &=\lim_{n\to\infty}\frac{n}{2}\ln (1+\frac{1}{n})
+         \end{align*}
+         答案是$\frac{1}{2}$
+     \end{solution}
+
+     \begin{exercise}
+         将二项式系数$\binom{n}{0},\binom{n}{1},\cdots,\binom{n}{n}$的算数平均值和几何平均值分别记为$A_n$和$G_n$. 证明: (1)$\lim_{n\to\infty}\sqrt[n]{A_n}=2$,(2)$\lim_{n\to\infty}\sqrt[n]{G_n}=\sqrt{e}$.
+     \end{exercise}

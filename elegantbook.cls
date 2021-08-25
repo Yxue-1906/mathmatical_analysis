@@ -639,7 +639,7 @@
 %% Example with counter
 \newcounter{exam}[subsection]
 \setcounter{exam}{0}
-\renewcommand{\theexam}{\thesection.\arabic{exam}}
+\renewcommand{\theexam}{\thesubsection.\arabic{exam}}
 \newenvironment{example}[1][]{
   \refstepcounter{exam}
   \par\noindent\textbf{\color{main} \theexam #1 }\rmfamily}{
@@ -648,7 +648,7 @@
 %% Exercise with counter
 \newcounter{exer}[subsection]
 \setcounter{exer}{0}
-\renewcommand{\theexer}{\thesection.\arabic{exer}}
+\renewcommand{\theexer}{\thesubsection.\arabic{exer}}
 \newenvironment{exercise}[1][]{
   \refstepcounter{exer}
   \par\noindent\makebox[-3pt][r]{

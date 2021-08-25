@@ -637,23 +637,23 @@
 % third（blue-prop):  assumptions property conclusion custom
 
 %% Example with counter
-\newcounter{exam}[section]
+\newcounter{exam}[subsection]
 \setcounter{exam}{0}
 \renewcommand{\theexam}{\thesection.\arabic{exam}}
 \newenvironment{example}[1][]{
   \refstepcounter{exam}
-  \par\noindent\textbf{\color{main}{\examplename} \theexam #1 }\rmfamily}{
+  \par\noindent\textbf{\color{main} \theexam #1 }\rmfamily}{
   \par\ignorespacesafterend}
 
 %% Exercise with counter
-\newcounter{exer}[section]
+\newcounter{exer}[subsection]
 \setcounter{exer}{0}
 \renewcommand{\theexer}{\thesection.\arabic{exer}}
 \newenvironment{exercise}[1][]{
   \refstepcounter{exer}
   \par\noindent\makebox[-3pt][r]{
     \scriptsize\color{red!90}\HandPencilLeft\quad}
-    \textbf{\color{main}{\exercisename} \theexer #1 }\rmfamily}{
+    \textbf{\color{main} \theexer #1 }\rmfamily}{
     \par\ignorespacesafterend}
 
 %% Problem with counter

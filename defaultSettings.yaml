@@ -584,7 +584,7 @@ modifyLineBreaks:
         EqualsStartsOnOwnLine: 0
         EqualsFinishesWithLineBreak: 0
     items:
-        ItemStartsOnOwnLine: -1
+        ItemStartsOnOwnLine: 1
         ItemFinishesWithLineBreak: -1
     namedGroupingBracesBrackets:
         NameStartsOnOwnLine: 0

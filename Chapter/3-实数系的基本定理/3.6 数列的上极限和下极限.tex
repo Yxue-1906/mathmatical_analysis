@@ -1,0 +1,53 @@
+
+\section{数列的上极限和下极限}
+ \subsection{思考题}
+     \begin{example}
+         (命题3.6.5)不等式
+         \[
+             \varliminf_{n\to\infty}(x_n+y_n) \leqslant \varliminf_{n\to\infty} x_n + \varlimsup_{n\to\infty} y_n \leqslant \varlimsup_{n\to\infty}(x_n+y_n)
+         \]
+         在中间的和式有意义时成立.
+     \end{example}
+     \begin{solution}
+         类似地写出$\inf_{n \geqslant k}\{x_k+y_k\} \leqslant \inf_{n \geqslant k}\{x_k+\sup_{n \geqslant k}{y_k}\}=\inf_{n \geqslant k}\{x_k\}+\sup_{n \geqslant k}\{y_k\}$,重复命题3.6.4证一的论证过程就出来了.
+     \end{solution}
+
+     \begin{example}
+         在已证明下极限存在和$\varliminf_{n\to\infty}x_n=\lim_{n\to\infty}\inf_{k\geqslant n}\{x_k\}$成立的前提下利用$\varlimsup_{n\to\infty}x_n=-\varliminf_{n\to\infty}(-x_n)$来证明上极限存在和$\varlimsup_{n\to\infty}x_n=\lim_{n\to\infty}\sup_{k\geqslant n}\{x_k\}$成立.
+     \end{example}
+     \begin{solution}
+         有公式$\varlimsup_{n\to\infty}x_n=-\varliminf_{n\to\infty}(-x_n)$和下极限存在之后上极限的存在就是简单推论.简单来说,既然下极限对所有数列都存在,则$\{-x_n\}$也存在$\varliminf_{n\to\infty}-x_n$,即也存在$-\varliminf_{n\to\infty}-x_n$,由后半个定理知上极限存在.
+
+         而$-\inf\{-x_n,-x_{n+1},\cdots\}=\sup\{x_n,x_{n+1},\cdots\}$,故$\varlimsup_{n\to\infty}x_n=\lim_{n\to\infty}\sup_{k\geqslant n}\{x_k\}$也是简单推论.
+     \end{solution}
+
+ \subsection{练习题}
+     \begin{exercise}
+         求以下数列的上极限和下极限:
+         \begin{enumerate}
+             \item $x_n=\frac{1+(-1)^n}{2},n\in\mathbb{N}_+$;
+                   \begin{solution}
+                       实际上$\{x_n\}$就是0,1交替的周期数列,所以显然$\varliminf_{n\to\infty} x_n=0,\varlimsup_{n\to\infty} x_n=1$.
+                   \end{solution}
+             \item $x_n=\sin\frac{n\pi}{4},n\in\mathbb{N}_+$;
+                   \begin{solution}
+                       同样这也是个周期数列,$\{x_n\}=\{\frac{\sqrt{2}}{2},1,\frac{\sqrt{2}}{2},0,-\frac{\sqrt{2}}{2},-1,-\frac{\sqrt{2}}{2},0,\cdots\}$,所以显然$\varliminf_{n\to\infty} x_n=-1,\varlimsup_{n\to\infty} x_n=1$.
+                   \end{solution}
+             \item $x_n=n^{(-1)^n},n\in\mathbb{N}_+$;
+                   \begin{solution}
+                       容易这个数列只有两个子列极限:$0,+\infty$.
+                       所以$\varliminf_{n\to\infty} x_n=0,\varlimsup_{n\to\infty} x_n=+\infty$.
+                   \end{solution}
+             \item $x_n=e^{n(-1)^n},n\in\mathbb{N}_+$.
+                   \begin{solution}
+                       与上一个基本类似,$\varliminf_{n\to\infty} x_n=0,\varlimsup_{n\to\infty} x_n=+\infty$.
+                   \end{solution}
+         \end{enumerate}
+     \end{exercise}
+
+     \begin{exercise}
+         若$x_n \geqslant y_n, n \in \mathbb{N}_+$,证明:$\varlimsup_{n\to\infty} x_n \geqslant \varlimsup_{n\to\infty} y_n, \varliminf_{n\to\infty} x_n \geqslant \varliminf_{n\to\infty} y_n$.
+     \end{exercise}
+     \begin{solution}
+
+     \end{solution}

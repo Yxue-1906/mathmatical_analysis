@@ -1,8 +1,13 @@
-#忽略LaTex自动生成文件
 *
+!*/
+.github/
 !*.tex
-!*.pdf
+main.tex
 !*.png
 !*.TTF
-!*.md
+!build.py
 !defaultSettings.yaml
+!elegantbook.cls
+!Makefile
+!README.md
+!.gitignore

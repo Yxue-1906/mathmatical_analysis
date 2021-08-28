@@ -265,32 +265,33 @@
          \begin{enumerate}
              \item 设$a_1>b_1>0,a_{n+1}=\frac{2a_nb_n}{a_n+b_n},b_{n+1}=\sqrt{a_{n+1}b_n},n\in \mathbb{N}+$,证明:
                    $\{a_n\}$和$\{b_n\}$收敛于同一极限.
-                   \begin{solution}
-                       解法类似例题2.3.5,分别证明$\{a_n\},\{b_n\}$单调且互为上下界.
-
-                       $a_n>b_n>0\Rightarrow a_n+b_n>2b_n\Rightarrow 1>\frac{2b_n}{a_n+b_n}\Rightarrow a_n>\frac{2a_nb_n}{a_n+b_n}$
-
-                       $a_n>b_n>0\Rightarrow 2a_n>a_n+b_n\Rightarrow a_{n+1}=\frac{2a_nb_n}{a_n+b_n}>b_n\Rightarrow b_{n+1}=\sqrt{a_{n+1}b_n}>b_n$
-
-                       $a_n>b_n\Rightarrow a_{n+1}>\sqrt{a_{n+1}b_n}=b_{n+1}$
-
-                       故两者都单调有界,也即收敛.
-
-                       任取其中一个递推式,令$n$趋向无穷即得两者极限相同.
-                   \end{solution}
 
              \item 在$a_1=2\sqrt{3},b_1=3$时,证明上述极限等于单位圆的半周长$\pi$.(这里可以利用极限$\lim_{n\to\infty}n\sin\frac{\pi}{n}=\pi.)$
-                   \begin{solution}
-                       若$\{a_n\}$为$m$边单位圆外切正多边形半周长,$\{b_n\}$为$m$边单位圆内接正多边形半周长,则$a_n=m\tan\frac{2\pi}{2m},b_n=m\sin\frac{2\pi}{2m}$.
-
-                       验证知$\frac{2a_nb_n}{a_n+b_n}=a_{n+1}=2m\tan\frac{2\pi}{2(2m)},\sqrt{a_{n+1}b_n}=b_{n+1}=2m\sin\frac{2\pi}{2(2m)}$,即下一项为$2m$边正多边形的半周长.
-
-                       计算知$a_1,b_1$分别为正六边形外切(内接)圆半周长,故$a_n=6\cdot2^{n-1}\tan\frac{\pi}{6\cdot2^{n-1}},$
-
-                       $b_n=6\cdot2^{n-1}\sin\frac{\pi}{6\cdot2^{n-1}}$,由提示知极限为$\pi$.
-                   \end{solution}
          \end{enumerate}
      \end{exercise}
+
+     \begin{solution}
+         \begin{enumerate}
+             \item 解法类似例题2.3.5,分别证明$\{a_n\},\{b_n\}$单调且互为上下界.
+
+                   $a_n>b_n>0\Rightarrow a_n+b_n>2b_n\Rightarrow 1>\frac{2b_n}{a_n+b_n}\Rightarrow a_n>\frac{2a_nb_n}{a_n+b_n}$
+
+                   $a_n>b_n>0\Rightarrow 2a_n>a_n+b_n\Rightarrow a_{n+1}=\frac{2a_nb_n}{a_n+b_n}>b_n\Rightarrow b_{n+1}=\sqrt{a_{n+1}b_n}>b_n$
+
+                   $a_n>b_n\Rightarrow a_{n+1}>\sqrt{a_{n+1}b_n}=b_{n+1}$
+
+                   故两者都单调有界,也即收敛.
+
+                   任取其中一个递推式,令$n$趋向无穷即得两者极限相同.
+             \item 若$\{a_n\}$为$m$边单位圆外切正多边形半周长,$\{b_n\}$为$m$边单位圆内接正多边形半周长,则$a_n=m\tan\frac{2\pi}{2m},b_n=m\sin\frac{2\pi}{2m}$.
+
+                   验证知$\frac{2a_nb_n}{a_n+b_n}=a_{n+1}=2m\tan\frac{2\pi}{2(2m)},\sqrt{a_{n+1}b_n}=b_{n+1}=2m\sin\frac{2\pi}{2(2m)}$,即下一项为$2m$边正多边形的半周长.
+
+                   计算知$a_1,b_1$分别为正六边形外切(内接)圆半周长,故$a_n=6\cdot2^{n-1}\tan\frac{\pi}{6\cdot2^{n-1}},$
+
+                   $b_n=6\cdot2^{n-1}\sin\frac{\pi}{6\cdot2^{n-1}}$,由提示知极限为$\pi$.
+         \end{enumerate}
+     \end{solution}
      \begin{note}
          本题与例题2.3.5完全不同.实际上这就是计算圆周率的Archimedes(阿基米德)-刘徽方法的迭代形式.在(2)中的两个数列$\{a_n\}$和$\{b_n\}$就是单位圆的外切和内接正多边形的半周长(请求出边数和$n$的关系).
      \end{note}
@@ -302,7 +303,7 @@
      \begin{solution}
          根据提示, 有$\sqrt{n-1+\sqrt{n}}<\sqrt{n-1+2\sqrt{n-1}+1}=\sqrt{n-1}+1$,再利用$\sqrt{n-1}<2\sqrt{n-2}(n\geqslant 3)$逐层脱去根号, 最后有$\leqslant2+\sqrt{2}$
      \end{solution}
-     
+
      \begin{exercise}
          证明: 对每个正整数$n$, 成立不等式$\left(1+\frac{1}{n}\right)^n>\sum_{k=0}^n \frac{1}{k!}-\frac{e}{2n}$.
      \end{exercise}
@@ -334,21 +335,68 @@
      \begin{solution}
          用两次Stolz定理,
          \begin{align*}
-             \lim_{n\to\infty}x_n 
-             &=\lim_{n\to\infty}\frac{1}{n^2}[(n+1)(\ln 1+\ln 2+\cdots)-2((\ln 1)+(\ln 1+\ln 2)+\cdots)] \\
-             &=\lim_{n\to\infty}\frac{1}{2n+1}[(\ln 1+\ln 2+\cdots+\ln n)+(n+2)\ln(n+1)-2(\ln 1+\ln 2+\cdots+\ln(n+1))] \\
-             &=\lim_{n\to\infty}\frac{1}{2n+1}[(n+1)\ln(n+1)-(\ln 1+\ln 2+\cdots+\ln(n+1))] \\
-             &=\lim_{n\to\infty}\frac{n}{2}\ln (1+\frac{1}{n})
+             \lim_{n\to\infty}x_n
+              & =\lim_{n\to\infty}\frac{1}{n^2}[(n+1)(\ln 1+\ln 2+\cdots)-2((\ln 1)+(\ln 1+\ln 2)+\cdots)]                \\
+              & =\lim_{n\to\infty}\frac{1}{2n+1}[(\ln 1+\ln 2+\cdots+\ln n)+(n+2)\ln(n+1)-2(\ln 1+\ln 2+\cdots+\ln(n+1))] \\
+              & =\lim_{n\to\infty}\frac{1}{2n+1}[(n+1)\ln(n+1)-(\ln 1+\ln 2+\cdots+\ln(n+1))]                             \\
+              & =\lim_{n\to\infty}\frac{n}{2}\ln (1+\frac{1}{n})
          \end{align*}
          答案是$\frac{1}{2}$
      \end{solution}
 
      \begin{exercise}
-         将二项式系数$\binom{n}{0},\binom{n}{1},\cdots,\binom{n}{n}$的算数平均值和几何平均值分别记为$A_n$和$G_n$. 证明: (1)$\lim_{n\to\infty}\sqrt[n]{A_n}=2$,(2)$\lim_{n\to\infty}\sqrt[n]{G_n}=\sqrt{e}$.
+         将二项式系数$\binom{n}{0},\binom{n}{1},\cdots,\binom{n}{n}$的算数平均值和几何平均值分别记为$A_n$和$G_n$. 证明:
+         \begin{enumerate}
+             \item $\lim_{n\to\infty}\sqrt[n]{A_n}=2$,
+             \item $\lim_{n\to\infty}\sqrt[n]{G_n}=\sqrt{e}$.
+         \end{enumerate}
      \end{exercise}
      \begin{solution}
-         
-        (1)利用$\sum\binom{n}{k}=2^n$, $\lim_{n\to\infty}\sqrt[n]{A_n}=\frac{2}{\displaystyle\lim_{n\to\infty}\sqrt[n]{n}}=2$
-
-        (2)对待求式子取个对数就变成了上一题, 利用结论即可.
+         \begin{enumerate}
+             \item 利用$\sum\binom{n}{k}=2^n$, $\lim_{n\to\infty}\sqrt[n]{A_n}=\frac{2}{\displaystyle\lim_{n\to\infty}\sqrt[n]{n}}=2$.
+             \item 对待求式取对数就变成了上一题, 利用结论即可.
+         \end{enumerate}
      \end{solution}
+
+     \begin{exercise}
+         设$A_n=\sum_{k=1}^{n}a_k, n\in \mathbb{N}_+$, 数列$\{A_n\}$收敛. 又有一个单调增加的正数数列$\{p_n\}$, 且为正无穷大亮. 证明: $\lim_{n\to\infty}\frac{p_1a_1+p_2a_2+\cdots+p_na_n}{p_n}=0$.
+     \end{exercise}
+     \begin{solution}
+         类似于Abel变换, 将$a_n$改写成$A_n-A_{n-1}$,
+         \begin{align*}
+             \text{原式}
+              & = \lim_{n\to\infty}\frac{p_1A_1+p_2(A_2-A_1)+\cdots+p_{n-1}(A_{n-1}-A_{n-1})+p_n(A_n-A_{n-1})}{p_n} \\
+              & = \lim_{n\to\infty}\frac{A_1(p_1-p_2)+\cdots+A_{n-1}(p_{n-1}-p_n)+A_np_n}{p_n}
+         \end{align*}
+         从中间某处截断, 有:
+         \begin{align*}
+             \text{原式}
+              & = \lim_{n\to\infty}\frac{A_1(p_1-p_2)+\cdots+A_k(p_k-p_{k+1})}{p_n}+\frac{A_{k+1}(p_{k+1}-p_{k+2})+\cdots+A_{n-1}(p_{n-1}-p_n)+A_np_n}{p_n}
+         \end{align*}
+         容易看出左边一部分极限趋0, 而不妨设$\{A_n\}\to a,(a>0)$, 则右边有$\frac{(a+\varepsilon)(p_{k+1}-p_n)+A_np_n}{p_n}\leqslant \text{右式}\leqslant \frac{(a-\varepsilon)(p_{k+1}-p_n)+A_np_n}{p_n}$.
+
+         由夹逼定理同样易知极限为0, 故待求极限为0.
+     \end{solution}
+
+     \begin{exercise}
+         设$\{a_n\}$满足$\lim_{n\to\infty}(a_n \sum_{i=1}^{n}a_i^2)=1$, 证明:$\lim_{n\to\infty}\sqrt[3]{3n}a_n=1$.
+     \end{exercise}
+     \begin{solution}
+
+         首先证明$\sum_{i=1}^{n}a_i^2$趋向正无穷大.
+
+         符号显然, 且容易看出单调递增, 由单调数列的性质知只可能有极限或者趋向正无穷大.
+
+         反证, 如果存在极限$a$, 则由题设知$a>0$. 由极限的四则运算知$\{a_n\}$趋向$\frac{1}{a}$; 然而这与$\sum_{i=1}^{n}a_i^2$存在极限矛盾, 故$\sum_{i=1}^{n}a_i^2$趋向正无穷大.一个推论就是$a_n^2$趋0, 也即$\lim_{n\to\infty} a_n=0$.
+
+         再证$a_n^3\thicksim \frac{1}{n}$.
+
+         由Stolz知有$\lim_{n\to\infty}\frac{a_{n+1}^2}{\frac{1}{a_{n+1}}-\frac{1}{a_n}}=1$, 也即$\lim_{n\to\infty}\frac{a_{n+1}^3}{1-\frac{a_{n+1}}{a_n}}=1$
+
+         对于题设, 做除法有$\lim_{n\to\infty}\frac{a_{n+1}\sum_{i=1}^{n+1}a_i^2}{a_n \sum_{i=1}^{n}a_i^2}=\lim_{n\to\infty}\frac{a_{n+1}}{a_n}(1+\frac{a_{n+1}^2}{\sum_{i=1}^{n}a_i^2})=1$, 显然中间式子括号部分趋向于1, 也即$\lim_{n\to\infty}\frac{a_{n+1}}{a_n}=1$.
+
+         结合知有$\lim_{n\to\infty}\frac{a_{n+1}^3}{(1-\frac{a_{n+1}}{a_n})(1+\frac{a_{n+1}}{a_n}+\frac{a_{n+1}}{a_n}^2)}=\lim_{n\to\infty}\frac{a_{n+1}^3}{1-(\frac{a_{n+1}}{a_n})^3}=\frac{1}{3}$
+     \end{solution}
+     \begin{note}
+         感觉要一开始就看出$a_n^3\thicksim \frac{1}{n}$还是很有难度的, 只能从待求结论得到提示...
+     \end{note}

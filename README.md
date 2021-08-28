@@ -1,5 +1,6 @@
 # 老贼写书不带答案
 
+[![GitHub version](https://badge.fury.io/gh/Yxue-1906%2Fmathmatical_analysis.svg)](https://github.com/Yxue-1906/mathmatical_analysis/releases/latest)
 [![Build Status](https://github.com/Yxue-1906/mathmatical_analysis/workflows/Main/badge.svg)](https://github.com/Yxue-1906/mathmatical_analysis/releases)
 
 ## 项目说明

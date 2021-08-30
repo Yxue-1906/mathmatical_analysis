@@ -395,8 +395,71 @@
 
          对于题设, 做除法有$\lim_{n\to\infty}\frac{a_{n+1}\sum_{i=1}^{n+1}a_i^2}{a_n \sum_{i=1}^{n}a_i^2}=\lim_{n\to\infty}\frac{a_{n+1}}{a_n}(1+\frac{a_{n+1}^2}{\sum_{i=1}^{n}a_i^2})=1$, 显然中间式子括号部分趋向于1, 也即$\lim_{n\to\infty}\frac{a_{n+1}}{a_n}=1$.
 
-         结合知有$\lim_{n\to\infty}\frac{a_{n+1}^3}{(1-\frac{a_{n+1}}{a_n})(1+\frac{a_{n+1}}{a_n}+\frac{a_{n+1}}{a_n}^2)}=\lim_{n\to\infty}\frac{a_{n+1}^3}{1-(\frac{a_{n+1}}{a_n})^3}=\frac{1}{3}$
+         结合知有$\lim_{n\to\infty}\frac{a_{n+1}^3}{(1-\frac{a_{n+1}}{a_n})(1+\frac{a_{n+1}}{a_n}+(\frac{a_{n+1}}{a_n})^2)}=\lim_{n\to\infty}\frac{a_{n+1}^3}{1-(\frac{a_{n+1}}{a_n})^3}=\lim_{n\to\infty}\frac{1}{\frac{1}{a_{n+1}^3}-\frac{1}{a_n^3}}=\frac{1}{3}$
+
+         故由Stolz知$\lim_{n\to\infty}\frac{3n}{a_n^3}=1$.
      \end{solution}
      \begin{note}
          感觉要一开始就看出$a_n^3\thicksim \frac{1}{n}$还是很有难度的, 只能从待求结论得到提示...
      \end{note}
+
+     \begin{exercise}
+         设数列$\{u_n\}_{n \geqslant 0}$对每个非负整数$n$满足条件
+         \[
+             u_n=\lim_{m\to\infty}(u_{n+1}^2+u_{n+2}^2+\cdots+u_{n+m}^2),
+         \]
+         证明:若存在有限极限$\lim_{n\to\infty}(u_1+u_2+\cdots+u_n)$,则只能是每个$u_n=0$.
+     \end{exercise}
+     \begin{solution}
+         显然$\lim_{n\to\infty}u_n=0$.
+
+         首先证明$\{u_n\}$的一个性质:$\{u_n\}$要么全0要么全部非负.
+
+         如果存在某一项$u_k$为0, 则根据题设知后边项全部为0; 同时由于$u_{k-1}=u_k^2+\cdots$, 故递推知前边所有项也都为0.
+
+         再证如果$u_n$不全为0则$u_n\thicksim\frac{1}{n}$, 即$\lim_{n\to\infty}nu_n=1$.
+
+         首先分析$\lim_{n\to\infty}\frac{1}{\frac{1}{u_{n+1}}+\frac{1}{u_n}}$,稍作变换得
+         \[
+             =\lim_{n\to\infty}\frac{u_{n+1}u_n}{u_n-u_{n+1}}
+         \]
+         由题设可以得到$u_n=u_{n+1}^2+u_{n+1}\Longleftrightarrow u_n-u_{n+1}=u_{n+1}^2$, 代入得
+         \begin{align*}
+              & =\lim_{n\to\infty}\frac{u_n}{u_{n+1}}               \\
+              & =\lim_{n\to\infty}\frac{u_{n+1}^2+u_{n+1}}{u_{n+1}} \\
+              & =\lim_{n\to\infty}u_n+1                             \\
+              & =1
+         \end{align*}
+         这时结论就很明显了, 在$u_n$和$\frac{1}{n}$等价的同时, 可以知道$\lim_{n\to\infty}\sum_{i=1}^{n}u_i$趋向于无穷大, 要得到有限极限只可能是每一项都为0.
+     \end{solution}
+     \begin{note}
+         同样地要看出$a_n\thicksim \frac{1}{n}$太难了...
+     \end{note}
+
+     \begin{exercise}
+         (Toeplitz定理)设对$n,k\in \mathbb{N}_+$,有$t_{nk}\geqslant 0$. 又有$\sum_{k=1}^{n}t_{nk}=1, \lim_{n\to\infty}t_{nk}=0$. 若已知$\lim_{n\to\infty}a_n=a$, 定义$x_n=\sum_{k=1}^{n}t_{nk}a_k, n\in \mathbb{N}_+$. 证明:$\lim_{n\to\infty}x_n=a$.
+
+         几种变形:
+         \begin{enumerate}
+             \item 将条件$\sum_{k=1}^{n}t_{nk}a_k$改为$\lim_{n\to\infty}\sum_{k=1}^{n}t_{nk}=1$;
+             \item 不要求$t_{nk}$非负, 将(1)中的条件改为存在$M>0$, 使得对每个$n$, 成立不等式$|t_{n1}|+\cdots+|t_{nn}|\leqslant M$. 则结论对$a=0$仍成立.
+         \end{enumerate}
+     \end{exercise}
+     \begin{solution}
+         类似于Cauthy, 将原式分割成两部分:$(t_{n1}a_1+\cdots t_{nm}a_m)+(t_{n(m+1)}+a_{m+1}+\cdots+t_{nn}a_n)$. 
+         
+         由题设, 对于任意$\varepsilon>0$, 可以找到适当的$N,m$, 使得当$n>N$时成立$|a_i-a|<\frac{\varepsilon}{2}, m<i \leqslant n$, 同时$\sum_{k=1}^{m}t_{nk}a_k<\frac{\varepsilon}{2}$(方法是首先找到适当的m让之后的$a_n$都符合要求, 再将$n$拉长使得前$m$个和符合要求), 这时成立$x_n<\varepsilon, n>N$, 不断缩小$\varepsilon$就可以证明结论.
+     \end{solution}
+     \begin{note}
+         \begin{enumerate}
+             \item 这时只要对分割开的后半部分引入另一个小量$\eta $即可. 先一步变成$\sum_{k=m+1}^{n}t_{nk}(a-\frac{\varepsilon}{2})\leqslant \sum_{k=m+1}^{n}t_{nk}a_k \leqslant \sum_{k=m+1}^{n}t_{nk}(a+\frac{\varepsilon}{2})$, 引入$\eta$后最左最有再添加两项变成$(1-\eta)(a-\frac{\varepsilon}{2})\leqslant \cdots \leqslant (1+\eta)(a+\frac{\varepsilon}{2})$, 这样就夹住了结论.
+             \item 这时就变化成$-M\frac{\varepsilon}{2}\leqslant \cdots \leqslant M\frac{\varepsilon}{2}$
+         \end{enumerate}
+     \end{note}
+
+     \begin{exercise}
+         用Toeplitz定理导出Stolz定理.
+     \end{exercise}
+     \begin{solution}
+         
+     \end{solution}

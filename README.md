@@ -19,7 +19,7 @@
 
 - 替换格式文件, 一般来说应当是``%Texlive Install Directory%/<Year>/texmf-dist/tex/latex/elegantbook/``
 - 运行``build.py``
-- 执行两次``xelatex main.pdf``即可
+- 执行两次``xelatex main.tex``即可
 
 ### Linux
 

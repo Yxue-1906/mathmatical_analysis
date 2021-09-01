@@ -10,7 +10,7 @@ def substitute(out):
     for chapter in sorted(directory.get('Chapter',None)):
         out.write("\\chapter{" + re.sub("^\\d+-", "", chapter) + "}\n")
         for section in sorted(directory.get(os.path.join('Chapter', chapter),None)):
-            out.write("\\input{" + re.sub("\\.tex$", "", os.path.join('Chapter', chapter, section)) + "}\n")
+            out.write("\\input{" + re.sub("\\.tex$", "", re.sub("\\\\","/",os.path.join('Chapter', chapter, section))) + "}\n")
         out.write("\n")
 
 

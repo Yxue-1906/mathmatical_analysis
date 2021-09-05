@@ -466,3 +466,27 @@
      \begin{note}
          似乎无法导出$\frac{0}{0}$型的Stolz.
      \end{note}
+
+     \begin{exercise}
+         设$0<\lambda<1,\{a_n\}$收敛于$a$. 证明:
+         \[
+             \lim_{n\to\infty}(a_n+\lambda a_{n-1}+{\lambda}^2 a_{n-2}+\cdots+{\lambda}^n a_0)=\frac{a}{1-\lambda}.
+         \]
+     \end{exercise}
+     \begin{solution}
+         由于$\{a_n\}\to a$, 由收敛性质知$\{a_n\}$有界, 即有$|a_n|<A, \forall\, n\in \mathbb{N}_+$, 又知存在$N$使得$|\lambda^{N+1}a_{N+1}+\cdots|\leqslant \lambda^{N+1}A+\cdots \leqslant \frac{\lambda^{N+1}}{1-\lambda}A<\frac{\varepsilon}{2},\varepsilon$为任意小量; 由于极限性质同时存在$N'$满足$|a_n-a|<\frac{\varepsilon}{2}, n>N'$, 易知足够大的$N$可以同时满足两个要求, 这时将待求式从左N处分开, 即求:
+         \[
+             \lim_{n\to\infty}(a_n+\lambda^2 a_{n-1}+\cdots+\lambda^N a_k)+(\lambda^{N+1}a_{k-1}+\cdots+\lambda_n a_0)(k>N)
+         \]
+         易见右半部分极限趋向0, 而左半部分有$\frac{(a-\varepsilon)(1-\lambda^{N+1})}{1-\lambda}\leqslant \cdots \leqslant \frac{(a+\varepsilon)(1-\lambda^{N+1})}{1-\lambda}$令$\varepsilon\to 0, N\to\infty$知左半部分趋$a$, 证毕.
+     \end{solution}
+
+     \begin{exercise}
+         设$\lim_{n\to\infty}x_n=0$, 并且存在常数$K$, 使得$|y_1|+|y_2|+\cdots+|y_n|\leqslant K$对每个$n$成立. 令$z_n=x_1y_n+x_2y_{n-1}+\cdots+x_ny_1, n\in \mathbb{N}_+$, 证明: $\lim_{n\to\infty}z_n=0$.
+     \end{exercise}
+     \begin{solution}
+         同样也是划分成两个部分, 前一部分由于$y_n\to 0$可以变得任意小; 后半部分因为$x_n$可以变得任意小, 同时$\{y_n\}$前边加起来小于$K$, 也即可以任意小, 故整体极限为0.
+     \end{solution}
+     \begin{note}
+         从本题条件已可推出$\lim_{n\to\infty}y_n=0$. 但是可以举出例子说明仅有条件$\lim_{n\to\infty}x_n=\lim_{n\to\infty}y_n=0$不能得到$\lim_{n\to\infty}z_n=0$.
+     \end{note}

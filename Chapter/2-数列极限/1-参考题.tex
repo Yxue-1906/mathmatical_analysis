@@ -446,8 +446,8 @@
          \end{enumerate}
      \end{exercise}
      \begin{solution}
-         类似于Cauthy, 将原式分割成两部分:$(t_{n1}a_1+\cdots t_{nm}a_m)+(t_{n(m+1)}+a_{m+1}+\cdots+t_{nn}a_n)$. 
-         
+         类似于Cauthy, 将原式分割成两部分:$(t_{n1}a_1+\cdots t_{nm}a_m)+(t_{n(m+1)}+a_{m+1}+\cdots+t_{nn}a_n)$.
+
          由题设, 对于任意$\varepsilon>0$, 可以找到适当的$N,m$, 使得当$n>N$时成立$|a_i-a|<\frac{\varepsilon}{2}, m<i \leqslant n$, 同时$\sum_{k=1}^{m}t_{nk}a_k<\frac{\varepsilon}{2}$(方法是首先找到适当的m让之后的$a_n$都符合要求, 再将$n$拉长使得前$m$个和符合要求), 这时成立$x_n<\varepsilon, n>N$, 不断缩小$\varepsilon$就可以证明结论.
      \end{solution}
      \begin{note}
@@ -461,5 +461,8 @@
          用Toeplitz定理导出Stolz定理.
      \end{exercise}
      \begin{solution}
-         
+         不妨设$a_0=b_0=0$,同时令$t_{nk}=\frac{a_k-a_{k-1}}{a_n}$,则当$\lim_{n\to\infty}\frac{b_{n+1)-b_n}}{a_{n+1}-a_n}=l$时根据Toeplitz定理有$\sum_{k=1}^{n}t_{nk}\frac{b_k-b_{k-1}}{a_k-a_{k-1}}=\sum_{k=1}^{n}\frac{a_k-a_{k-1}}{a_n}\frac{b_k-b_{k-1}}{a_k-a_{k-1}}=\frac{b_{n}}{a_{n}}=l$.
      \end{solution}
+     \begin{note}
+         似乎无法导出$\frac{0}{0}$型的Stolz.
+     \end{note}

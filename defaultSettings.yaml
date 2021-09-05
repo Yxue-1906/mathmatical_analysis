@@ -604,8 +604,8 @@ replacements:
     amalgamate: 1
   - 
     substitution: s/(\\exists|\\forall)(?!\s*\\,)\s*/$1\\\, /sg
-  -
-    substitution: s/(?<!\\left)(?<!\\right)(\s*\\,)?\s*(\\(Bigg|bigg|Big|big)(l|r|))?\s*(\|)(\\,\s*)?/\\\, $2\|\\\, /sg
+#   -
+#     substitution: s/(?<!\\left)(?<!\\right)(\s*\\,)?\s*(\\(Bigg|bigg|Big|big)(l|r|))?\s*(\|)(\\,\s*)?/\\\, $2\|\\\, /sg
 
 # fineTuning allows you to tweak the internal pattern matching that 
 # is central to latexindent.pl

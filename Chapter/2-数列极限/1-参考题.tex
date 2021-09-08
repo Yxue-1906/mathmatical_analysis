@@ -490,3 +490,28 @@
      \begin{note}
          从本题条件已可推出$\lim_{n\to\infty}y_n=0$. 但是可以举出例子说明仅有条件$\lim_{n\to\infty}x_n=\lim_{n\to\infty}y_n=0$不能得到$\lim_{n\to\infty}z_n=0$.
      \end{note}
+     \begin{note}
+         $y_n\to 0$十分显然, 严格来说即: 令$Y_n=|y_1|+|y_2|+\cdots+|y_n|$, 由题设知这是单调递增有上界数列, 故有极限存在, 同时$\lim_{n\to\infty}Y_n-Y_{n-1}=0$, 也即$|y_n|\to 0$.
+
+         根据提示, 取$x_n=y_n=\frac{1}{\sqrt{n}}$, 则$z_n=\frac{1}{\sqrt{1}}\cdot\frac{1}{\sqrt{n}}+\frac{1}{\sqrt{2}}\cdot\frac{1}{\sqrt{n-1}}+\cdots+\frac{1}{\sqrt{n}}\cdot\frac{1}{\sqrt{1}}$.
+
+         简单的利用均值不等式我们可以得到$z_n \geqslant n\sqrt[n]{\frac{1}{n!}}$, 而根据前边的结论我们知道$\lim_{n\to\infty}\sqrt[n]{\frac{n^n}{n!}}=e$(见例题2.7.2的注5, 证明方法是利用$a_n\to a \Rightarrow \sqrt[n]{a_1a_2\cdots a_n}=a(\forall n \in \mathbb{N}_+, a_n>0)$), 可以得到$z_n$绝不趋向0.
+     \end{note}
+
+     \begin{exercise}
+         设$y_n=2x_{n+1}+x_n, n\in \mathbb{N}_+$. 证明: 若$\{y_n\}$收敛, 则$\{x_n\}$也收敛.
+     \end{exercise}
+     \begin{solution}
+         将$x_n$前几项写出, 有:
+         \begin{align*}
+             x_1&=x_1 \\
+             x_2&=\frac{1}{2}(y_1-x_1)=\frac{1}{2}y_1-\frac{1}{2}x_1 \\
+             x_3&=\frac{1}{2}(y_2-x_2)=\frac{1}{2}y_2-\frac{1}{4}y_1+\frac{1}{4}x_1 \\
+             \vdots
+         \end{align*}
+         可以用数学归纳法证明有$x_n=\frac{1}{2}y_{n-1}-\frac{1}{4}y_{n-2}+\cdots-(-\frac{1}{2})^{n-1}y_1+(-\frac{1}{2})^{n-1}x_1$,则利用12题的结论可以得出$\lim_{n\to\infty}x_n=\frac{1}{2}(\frac{Y}{1-(-\frac{1}{2})})=\frac{1}{3}Y$.
+     \end{solution}
+
+     \begin{exercise}
+         由初始值$a_0$和$a_n=2^{n+1}-3a_{n-1}, n \in \mathbb{N}_+$, 确定数列$\{a_n\}$. 求$a_0$的所有可能值, 使得数列$\{a_n\}$是单调增加的.
+     \end{exercise}

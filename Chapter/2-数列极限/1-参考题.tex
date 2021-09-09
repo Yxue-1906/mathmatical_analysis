@@ -495,7 +495,7 @@
 
          根据提示, 取$x_n=y_n=\frac{1}{\sqrt{n}}$, 则$z_n=\frac{1}{\sqrt{1}}\cdot\frac{1}{\sqrt{n}}+\frac{1}{\sqrt{2}}\cdot\frac{1}{\sqrt{n-1}}+\cdots+\frac{1}{\sqrt{n}}\cdot\frac{1}{\sqrt{1}}$.
 
-         简单的利用均值不等式我们可以得到$z_n \geqslant n\sqrt[n]{\frac{1}{n!}}$, 而根据前边的结论我们知道$\lim_{n\to\infty}\sqrt[n]{\frac{n^n}{n!}}=e$(见例题2.7.2的注5, 证明方法是利用$a_n\to a \Rightarrow \sqrt[n]{a_1a_2\cdots a_n}=a(\forall n \in \mathbb{N}_+, a_n>0)$), 可以得到$z_n$绝不趋向0.
+         简单的利用均值不等式我们可以得到$z_n \geqslant n\sqrt[n]{\frac{1}{n!}}$, 而根据前边的结论我们知道$\lim_{n\to\infty}\sqrt[n]{\frac{n^n}{n!}}=e$(见例题2.7.2的注5, 证明方法是利用$a_n\to a \Rightarrow \sqrt[n]{a_1a_2\cdots a_n}=a(\forall\, n \in \mathbb{N}_+, a_n>0)$), 可以得到$z_n$绝不趋向0.
      \end{note}
 
      \begin{exercise}
@@ -504,14 +504,36 @@
      \begin{solution}
          将$x_n$前几项写出, 有:
          \begin{align*}
-             x_1&=x_1 \\
-             x_2&=\frac{1}{2}(y_1-x_1)=\frac{1}{2}y_1-\frac{1}{2}x_1 \\
-             x_3&=\frac{1}{2}(y_2-x_2)=\frac{1}{2}y_2-\frac{1}{4}y_1+\frac{1}{4}x_1 \\
+             x_1 & =x_1                                                               \\
+             x_2 & =\frac{1}{2}(y_1-x_1)=\frac{1}{2}y_1-\frac{1}{2}x_1                \\
+             x_3 & =\frac{1}{2}(y_2-x_2)=\frac{1}{2}y_2-\frac{1}{4}y_1+\frac{1}{4}x_1 \\
              \vdots
          \end{align*}
          可以用数学归纳法证明有$x_n=\frac{1}{2}y_{n-1}-\frac{1}{4}y_{n-2}+\cdots-(-\frac{1}{2})^{n-1}y_1+(-\frac{1}{2})^{n-1}x_1$,则利用12题的结论可以得出$\lim_{n\to\infty}x_n=\frac{1}{2}(\frac{Y}{1-(-\frac{1}{2})})=\frac{1}{3}Y$.
      \end{solution}
 
      \begin{exercise}
-         由初始值$a_0$和$a_n=2^{n+1}-3a_{n-1}, n \in \mathbb{N}_+$, 确定数列$\{a_n\}$. 求$a_0$的所有可能值, 使得数列$\{a_n\}$是单调增加的.
+         由初始值$a_0$和$a_n=2^{n-1}-3a_{n-1}, n \in \mathbb{N}_+$, 确定数列$\{a_n\}$. 求$a_0$的所有可能值, 使得数列$\{a_n\}$是单调增加的.
+     \end{exercise}
+     \begin{solution}
+         我也忘记这叫啥方法了, 构造辅助数列的时候要让辅助数列中n在指数上的项跟着动. 具体来说, 在这里需要求解$a_n+\lambda 2^n=-3(a_{n-1}+\lambda 2^{n-1})$, 解得$\lambda=-\frac{1}{5}$, 也即$a_n=(-3)^n(a_0-\frac{1}{5})+\frac{1}{5}2^n$.
+
+         可以体会出由于前一项的底数绝对值更大, 起主导作用, 最后整个符号随着前一项摆动, 要使$\{a_n\}$严格单调递增, 只能是前一项的系数为0, 也即$a_0=\frac{1}{5}$.
+     \end{solution}
+
+     \begin{exercise}
+         证明数列$\sqrt{7}, \sqrt{7-\sqrt{7}}, \sqrt{7-\sqrt{7+\sqrt{7}}}, \sqrt{7-\sqrt{7+\sqrt{7-\sqrt{7}}}}, \cdots$收敛, 并求其极限.
+     \end{exercise}
+     \begin{solution}
+         首先发现隔项有递推式$a_n=\sqrt{7-\sqrt{7+a_{n-2}}}$.
+
+         之后列出不动点方程: $x^4-14x^2-x+42=(x-2)(x^3+2x^2-10x-21)=0$, 这个2是猜根猜出来的.(可以尝试把常数项分解因子, 然后挨个带进去)(利用数学软件算出还有个好根-3, 另两个根是$1\pm \sqrt{29}$)
+
+         观察原来的表达式, 首先都是根号下说明都是正数, 同时从第二项开始为$\sqrt{7-\cdots}$说明后边的项都不超过$\sqrt{7}$, 很有可能2就是极限.
+
+         两边同时减去2, 整理得到$a_n-2=\frac{2-a_{n-2}}{(\sqrt{7-\sqrt{7+a_{n-2}}}+2)(3+\sqrt{7+a_{n-2}})}$, 可以看出分母不小于6, 也即$a_n-2 \leqslant \frac{1}{6}(2-a_{n-2})$, 所以得到极限为2.
+     \end{solution}
+
+     \begin{exercise}
+         令$y_0 \geqslant 2, y_n=y_{n-1}^2-2, n \in \mathbb{N}_+$. 设$S_n=\frac{1}{y_0}+\frac{1}{y_0y_1}+\cdots+\frac{1}{y_0y_1\cdots y_n}$. 证明: $\lim_{n\to\infty}S_n=\frac{y_0-\sqrt{y_0^2-4}}{2}$.
      \end{exercise}

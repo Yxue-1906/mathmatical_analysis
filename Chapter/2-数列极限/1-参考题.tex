@@ -446,8 +446,8 @@
          \end{enumerate}
      \end{exercise}
      \begin{solution}
-         类似于Cauthy, 将原式分割成两部分:$(t_{n1}a_1+\cdots t_{nm}a_m)+(t_{n(m+1)}+a_{m+1}+\cdots+t_{nn}a_n)$. 
-         
+         类似于Cauthy, 将原式分割成两部分:$(t_{n1}a_1+\cdots t_{nm}a_m)+(t_{n(m+1)}+a_{m+1}+\cdots+t_{nn}a_n)$.
+
          由题设, 对于任意$\varepsilon>0$, 可以找到适当的$N,m$, 使得当$n>N$时成立$|a_i-a|<\frac{\varepsilon}{2}, m<i \leqslant n$, 同时$\sum_{k=1}^{m}t_{nk}a_k<\frac{\varepsilon}{2}$(方法是首先找到适当的m让之后的$a_n$都符合要求, 再将$n$拉长使得前$m$个和符合要求), 这时成立$x_n<\varepsilon, n>N$, 不断缩小$\varepsilon$就可以证明结论.
      \end{solution}
      \begin{note}
@@ -461,5 +461,79 @@
          用Toeplitz定理导出Stolz定理.
      \end{exercise}
      \begin{solution}
-         
+         不妨设$a_0=b_0=0$,同时令$t_{nk}=\frac{a_k-a_{k-1}}{a_n}$,则当$\lim_{n\to\infty}\frac{b_{n+1)-b_n}}{a_{n+1}-a_n}=l$时根据Toeplitz定理有$\sum_{k=1}^{n}t_{nk}\frac{b_k-b_{k-1}}{a_k-a_{k-1}}=\sum_{k=1}^{n}\frac{a_k-a_{k-1}}{a_n}\frac{b_k-b_{k-1}}{a_k-a_{k-1}}=\frac{b_{n}}{a_{n}}=l$.
      \end{solution}
+     \begin{note}
+         似乎无法导出$\frac{0}{0}$型的Stolz.
+     \end{note}
+
+     \begin{exercise}
+         设$0<\lambda<1,\{a_n\}$收敛于$a$. 证明:
+         \[
+             \lim_{n\to\infty}(a_n+\lambda a_{n-1}+{\lambda}^2 a_{n-2}+\cdots+{\lambda}^n a_0)=\frac{a}{1-\lambda}.
+         \]
+     \end{exercise}
+     \begin{solution}
+         由于$\{a_n\}\to a$, 由收敛性质知$\{a_n\}$有界, 即有$|a_n|<A, \forall\, n\in \mathbb{N}_+$, 又知存在$N$使得$|\lambda^{N+1}a_{N+1}+\cdots|\leqslant \lambda^{N+1}A+\cdots \leqslant \frac{\lambda^{N+1}}{1-\lambda}A<\frac{\varepsilon}{2},\varepsilon$为任意小量; 由于极限性质同时存在$N'$满足$|a_n-a|<\frac{\varepsilon}{2}, n>N'$, 易知足够大的$N$可以同时满足两个要求, 这时将待求式从左N处分开, 即求:
+         \[
+             \lim_{n\to\infty}(a_n+\lambda^2 a_{n-1}+\cdots+\lambda^N a_k)+(\lambda^{N+1}a_{k-1}+\cdots+\lambda_n a_0)(k>N)
+         \]
+         易见右半部分极限趋向0, 而左半部分有$\frac{(a-\varepsilon)(1-\lambda^{N+1})}{1-\lambda}\leqslant \cdots \leqslant \frac{(a+\varepsilon)(1-\lambda^{N+1})}{1-\lambda}$令$\varepsilon\to 0, N\to\infty$知左半部分趋$a$, 证毕.
+     \end{solution}
+
+     \begin{exercise}
+         设$\lim_{n\to\infty}x_n=0$, 并且存在常数$K$, 使得$|y_1|+|y_2|+\cdots+|y_n|\leqslant K$对每个$n$成立. 令$z_n=x_1y_n+x_2y_{n-1}+\cdots+x_ny_1, n\in \mathbb{N}_+$, 证明: $\lim_{n\to\infty}z_n=0$.
+     \end{exercise}
+     \begin{solution}
+         同样也是划分成两个部分, 前一部分由于$y_n\to 0$可以变得任意小; 后半部分因为$x_n$可以变得任意小, 同时$\{y_n\}$前边加起来小于$K$, 也即可以任意小, 故整体极限为0.
+     \end{solution}
+     \begin{note}
+         从本题条件已可推出$\lim_{n\to\infty}y_n=0$. 但是可以举出例子说明仅有条件$\lim_{n\to\infty}x_n=\lim_{n\to\infty}y_n=0$不能得到$\lim_{n\to\infty}z_n=0$.
+     \end{note}
+     \begin{note}
+         $y_n\to 0$十分显然, 严格来说即: 令$Y_n=|y_1|+|y_2|+\cdots+|y_n|$, 由题设知这是单调递增有上界数列, 故有极限存在, 同时$\lim_{n\to\infty}Y_n-Y_{n-1}=0$, 也即$|y_n|\to 0$.
+
+         根据提示, 取$x_n=y_n=\frac{1}{\sqrt{n}}$, 则$z_n=\frac{1}{\sqrt{1}}\cdot\frac{1}{\sqrt{n}}+\frac{1}{\sqrt{2}}\cdot\frac{1}{\sqrt{n-1}}+\cdots+\frac{1}{\sqrt{n}}\cdot\frac{1}{\sqrt{1}}$.
+
+         简单的利用均值不等式我们可以得到$z_n \geqslant n\sqrt[n]{\frac{1}{n!}}$, 而根据前边的结论我们知道$\lim_{n\to\infty}\sqrt[n]{\frac{n^n}{n!}}=e$(见例题2.7.2的注5, 证明方法是利用$a_n\to a \Rightarrow \sqrt[n]{a_1a_2\cdots a_n}=a(\forall\, n \in \mathbb{N}_+, a_n>0)$), 可以得到$z_n$绝不趋向0.
+     \end{note}
+
+     \begin{exercise}
+         设$y_n=2x_{n+1}+x_n, n\in \mathbb{N}_+$. 证明: 若$\{y_n\}$收敛, 则$\{x_n\}$也收敛.
+     \end{exercise}
+     \begin{solution}
+         将$x_n$前几项写出, 有:
+         \begin{align*}
+             x_1 & =x_1                                                               \\
+             x_2 & =\frac{1}{2}(y_1-x_1)=\frac{1}{2}y_1-\frac{1}{2}x_1                \\
+             x_3 & =\frac{1}{2}(y_2-x_2)=\frac{1}{2}y_2-\frac{1}{4}y_1+\frac{1}{4}x_1 \\
+             \vdots
+         \end{align*}
+         可以用数学归纳法证明有$x_n=\frac{1}{2}y_{n-1}-\frac{1}{4}y_{n-2}+\cdots-(-\frac{1}{2})^{n-1}y_1+(-\frac{1}{2})^{n-1}x_1$,则利用12题的结论可以得出$\lim_{n\to\infty}x_n=\frac{1}{2}(\frac{Y}{1-(-\frac{1}{2})})=\frac{1}{3}Y$.
+     \end{solution}
+
+     \begin{exercise}
+         由初始值$a_0$和$a_n=2^{n-1}-3a_{n-1}, n \in \mathbb{N}_+$, 确定数列$\{a_n\}$. 求$a_0$的所有可能值, 使得数列$\{a_n\}$是单调增加的.
+     \end{exercise}
+     \begin{solution}
+         我也忘记这叫啥方法了, 构造辅助数列的时候要让辅助数列中n在指数上的项跟着动. 具体来说, 在这里需要求解$a_n+\lambda 2^n=-3(a_{n-1}+\lambda 2^{n-1})$, 解得$\lambda=-\frac{1}{5}$, 也即$a_n=(-3)^n(a_0-\frac{1}{5})+\frac{1}{5}2^n$.
+
+         可以体会出由于前一项的底数绝对值更大, 起主导作用, 最后整个符号随着前一项摆动, 要使$\{a_n\}$严格单调递增, 只能是前一项的系数为0, 也即$a_0=\frac{1}{5}$.
+     \end{solution}
+
+     \begin{exercise}
+         证明数列$\sqrt{7}, \sqrt{7-\sqrt{7}}, \sqrt{7-\sqrt{7+\sqrt{7}}}, \sqrt{7-\sqrt{7+\sqrt{7-\sqrt{7}}}}, \cdots$收敛, 并求其极限.
+     \end{exercise}
+     \begin{solution}
+         首先发现隔项有递推式$a_n=\sqrt{7-\sqrt{7+a_{n-2}}}$.
+
+         之后列出不动点方程: $x^4-14x^2-x+42=(x-2)(x^3+2x^2-10x-21)=0$, 这个2是猜根猜出来的.(可以尝试把常数项分解因子, 然后挨个带进去)(利用数学软件算出还有个好根-3, 另两个根是$1\pm \sqrt{29}$)
+
+         观察原来的表达式, 首先都是根号下说明都是正数, 同时从第二项开始为$\sqrt{7-\cdots}$说明后边的项都不超过$\sqrt{7}$, 很有可能2就是极限.
+
+         两边同时减去2, 整理得到$a_n-2=\frac{2-a_{n-2}}{(\sqrt{7-\sqrt{7+a_{n-2}}}+2)(3+\sqrt{7+a_{n-2}})}$, 可以看出分母不小于6, 也即$a_n-2 \leqslant \frac{1}{6}(2-a_{n-2})$, 所以得到极限为2.
+     \end{solution}
+
+     \begin{exercise}
+         令$y_0 \geqslant 2, y_n=y_{n-1}^2-2, n \in \mathbb{N}_+$. 设$S_n=\frac{1}{y_0}+\frac{1}{y_0y_1}+\cdots+\frac{1}{y_0y_1\cdots y_n}$. 证明: $\lim_{n\to\infty}S_n=\frac{y_0-\sqrt{y_0^2-4}}{2}$.
+     \end{exercise}

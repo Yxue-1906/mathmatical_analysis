@@ -1,0 +1,53 @@
+\section{几个常用的初等不等式}
+ \subsection{练习题}
+     \begin{exercise}
+         关于Bernoulli不等式的推广:
+         \begin{enumerate}
+             \item 证明: 当$-2 \leqslant h \leqslant -1$时Bernoulli不等式$(1+h)^n \geqslant 1+nh$仍成立;
+             \item 证明: 当$h \geqslant 0$时成立不等式$(1+h)^n \geqslant \frac{n(n-1)h^2}{2}$,并推广之;
+             \item 证明: 若$a_i>-1(i=1,2,\cdots,n)$且同号, 则成立不等式
+                   \[
+                       \prod_{i=1}^{n}(1+a_i)\geqslant 1+\sum_{i=1}^{n}a_i.
+                   \]
+         \end{enumerate}
+     \end{exercise}
+     \begin{solution}
+
+     \end{solution}
+
+     \begin{exercise}
+         阶乘$n!$在数学分析以及其他课程重经常出现, 以下是几个有关的不等式, 它们都可以从平均值不等式得到:
+         \begin{enumerate}
+             \item 证明: 当$n>1$时成立$n!<\left(\frac{n+1}{2}\right)^2$;
+             \item 利用$(n!)^2=(n\cdot 1)[(n-1)\cdot 2]\cdots(1\cdot n)$证明: 当$n>1$时成立
+                   \[
+                       n!<\left(\frac{n+2}{\sqrt{6}}\right);
+                   \]
+             \item 比较(1)和(2)重两个不等式的优劣, 并说明原因;
+             \item 证明: 对任意实数$r$成立$(n!)\leqslant \frac{1}{n^n}\Big(\sum_{k=1}^{n}k^r\Big)^n$.
+         \end{enumerate}
+     \end{exercise}
+     \begin{note}
+         在第二章的参考题中还有关于$n!$的不等式. 这方面的深入讨论见本书11.4.2小节的Wallis(沃利斯)公式和Stirling(斯特林)公式.
+     \end{note}
+     \begin{solution}
+
+     \end{solution}
+
+     \begin{exercise}
+         证明\textbf{几何平均值-调和平均值不等式}: 若$a_k>0, k=1,2,\cdots,n$,则有
+         \[
+             \Big(\prod_{k=1}^{n}a_k\Big)^\frac{1}{n}\geqslant \ddfrac{n}{\sum_{k=1}^{n}\frac{1}{a_k}}
+         \]
+     \end{exercise}
+     \begin{exercise}
+         证明: 当$a,b,c$为非负数时成立$\sqrt[3]{abc}\leqslant \sqrt{\frac{ab+bc+ca}{3}}\leqslant \frac{a+b+c}{3}$.
+     \end{exercise}
+     \begin{solution}
+
+         $\frac{a+b+c}{3}=\sqrt{\frac{\frac{a^2+b^2}{2}+\frac{b^2+c^2}{2}+\frac{a^2+c^2}{2}+2ab+2bc+2ac}{3^2}}\geqslant \sqrt{\frac{3ab+3bc+3ac}{3^2}}=\sqrt{\frac{ab+bc+ac}{3}}$.
+
+         左边的不等号易证.
+
+         推广可以得到$\ddfrac{\sum_{i=1}^{n}a_i}{n}\geqslant \sqrt{\frac{3}{n}\sum_{1 \leqslant i \leqslant j \leqslant n}a_ia_j}\geqslant \sqrt[n]{\prod_{i=1}^{n} a_i}$.
+     \end{solution}

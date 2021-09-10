@@ -17,7 +17,6 @@
 
 ### Windows
 
-- 替换格式文件, 一般来说应当是``%Texlive Install Directory%/<Year>/texmf-dist/tex/latex/elegantbook/``
 - 运行``build.py``
 - 执行两次``xelatex main.tex``即可
 
@@ -25,5 +24,4 @@
 
 \* 本流程仅在Ubuntu20.04下进行过测试, 其他系统请自行测试
 
-- 替换格式文件, 一般来说应当是在``/usr/share/texlive/texmf-dist/tex/latex/elegantbook/``下
 - 在项目根目录下运行``make``即可 

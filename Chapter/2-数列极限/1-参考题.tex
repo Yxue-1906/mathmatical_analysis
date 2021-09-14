@@ -549,7 +549,18 @@
          \end{align*}
          观察之后可以发现, 分子有递推式$s_n=s_{n-1}(x^n+\frac{1}{x^n})+1$, 恰恰好括号中的两项分别将$s_{n-1}$平移到1的左右两边, 最后再补上一个1恢复规律.
 
-    利用归纳法可以证明$s_n=\frac{x^{2^{n+1}}-\frac{1}{x^{2^{n+1}-2}}}{x^2-1}$, 而原分式的分母有$\frac{1}{y_0y_1\cdots y_n}=\frac{x-\frac{1}{x}}{x^{2^{n+1}}-\frac{1}{x^{2^{n+1}}}}$;
+         利用归纳法可以证明$s_n=\frac{x^{2^{n+1}}-\frac{1}{x^{2^{n+1}-2}}}{x^2-1}$, 而原分式的分母有$\frac{1}{y_0y_1\cdots y_n}=\frac{x-\frac{1}{x}}{x^{2^{n+1}}-\frac{1}{x^{2^{n+1}}}}$;
 
-    故$S_n=\frac{x^{2^{n+1}-1}-\frac{1}{x^{2^{n+1}-1}}}{x^{2^{n+1}}-\frac{1}{x^{2^{n+1}}}}=\frac{\frac{1}{x}-\frac{1}{x^{2^{n+1}-1}x^{2^{n+1}}}}{1-\frac{1}{x^{2^{2n+2}}}}$, 不妨设$x>1$, 容易看出$S_n\to \frac{1}{x}$, 也即$\lim_{n\to\infty}S_n=\frac{y_0-\sqrt{y_0^2-4}}{2}$.
+         故$S_n=\frac{x^{2^{n+1}-1}-\frac{1}{x^{2^{n+1}-1}}}{x^{2^{n+1}}-\frac{1}{x^{2^{n+1}}}}=\frac{\frac{1}{x}-\frac{1}{x^{2^{n+1}-1}x^{2^{n+1}}}}{1-\frac{1}{x^{2^{2n+2}}}}$, 不妨设$x>1$, 容易看出$S_n\to \frac{1}{x}$, 也即$\lim_{n\to\infty}S_n=\frac{y_0-\sqrt{y_0^2-4}}{2}$.
      \end{solution}
+
+     \begin{exercise}
+         设$x_1=c, x_{n+1}=a^{x_n}(a>0, a\neq 1), n \in \mathbb{N}_+$. 根据下面提供的函数$f(x)=a^x$和$f(f(x))$的单调性和不动点的知识, 讨论数列$\{x_n\}$的敛散性.
+         \begin{enumerate}
+             \item 在$a>1$时函数$f(x)=a^x$单调增加.
+                   \begin{enumerate}
+                       \item 如$a>e^\frac{1}{e}$, 则$f$无不动点. 证明: 不论$c$如何, 数列$\{x_n\}$总是单调增加的正无穷大量;
+                       \item 在$a>e^\frac{1}{e}$时$f$恰有一个不动点. 证明: 当$c \leqslant e$时, 数列$\{x_n\}$单调增加收敛于$e$, 而当$c>e$时, $\{x_n\}$是单调增加的正无穷大量.
+                   \end{enumerate}
+         \end{enumerate}
+     \end{exercise}

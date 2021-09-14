@@ -781,7 +781,7 @@
   % \newtcbtheorem[auto counter,number within=chapter]{definition}{\definitionname}{defstyle}{def}
   \DeclareTColorBox[auto counter,number within=chapter]{definition}{ o t\label g }{
     common,defstyle,
-    IfValueTF={#1}{title={\definitionname~\thetcbcounter\ (#1)}}{title=\definitionname~\thetcbcounter},
+    IfValueTF={#1}{title={\definitionname~\thetcbcounter\ #1}}{title=\definitionname~\thetcbcounter},
     IfBooleanTF={#2}{label=#3}{}}
   % \newtcbtheorem[auto counter,number within=chapter]{theorem}{\theoremname}{thmstyle}{thm}
   \DeclareTColorBox[auto counter,number within=chapter]{theorem}{ o t\label g }{

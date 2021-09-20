@@ -6,6 +6,6 @@ main.tex: base.tex build.py
 	/usr/bin/python build.py base.tex
 
 clean:
-	find . \( -name '*.aux' -o -name '*.log' -o -name '*.out' -o -name '*.toc' -o -name '*.synctex.gz' \) -print0 | xargs -0 -I file rm 'file'
+	find . \( -name '*.pdf' -o -name '*.xml' -o -name '*.bcf' -o -name '*.aux' -o -name '*.log' -o -name '*.out' -o -name '*.toc' -o -name '*.synctex.gz' \) -print0 | xargs -0 -I file rm 'file'
 
 .PHONY: all clean

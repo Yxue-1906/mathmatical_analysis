@@ -41,7 +41,7 @@ jobs:
           # sudo mv /usr/share/texlive/texmf-dist/tex/latex/elegantbook/elegantbook.cls /usr/share/texlive/texmf-dist/tex/latex/elegantbook/elegantbook.cls.bak
           sudo mkdir -p /usr/share/texlive/texmf-dist/tex/latex/elegantbook || echo "no this Folder, skip..."
           sudo cp elegantbook.cls /usr/share/texlive/texmf-dist/tex/latex/elegantbook/elegantbook.cls
-          sudo apt install texlive-full -y
+          sudo apt install texlive-latex-recommended texlive-lang-chinese texlive-xetex texlive-fonts-extra texlive-bibtex-extra -y
       
       # Runs a set of commands using the runners shell
       - name: build main.pdf

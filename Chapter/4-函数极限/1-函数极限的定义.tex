@@ -1,0 +1,35 @@
+\section{函数极限的定义}
+ \subsection{思考题}
+     \begin{exercise}
+         下列几种叙述能否作为函数极限$\lim_{x\to a}f(x)=A$的等价定义?
+         \begin{enumerate}
+             \item $\forall\, \varepsilon>0,\exists\, \delta >0,\forall\, x\in O_\delta(a)-\{a\}, \text{成立}|f(x)-A|\leqslant \varepsilon$;
+             \item $\forall\, \varepsilon>0,\exists\, \delta >0,\forall\, x\in O_\delta(a)-\{a\}, \text{成立}|f(x)-A|< k\varepsilon(k\text{为常数})$;
+             \item $\forall\, n\in \mathbb{N}_+,\exists\, \delta >0,\forall\, x\in O_\delta(a)-\{a\}, \text{成立}|f(x)-A|< \frac{1}{n}$;
+             \item $\forall\, \varepsilon>0,\exists\, n,\forall\, x\in O_\frac{1}{n}-\{a\}, \text{成立}|f(x)-A|< \varepsilon$;
+         \end{enumerate}
+     \end{exercise}
+     \begin{solution}
+         \begin{enumerate}
+             \item 显然是的. 严格小于或者是可以等于不影响趋向的性质.
+             \item 是的. 常数倍的放缩同样不影响性质.
+             \item 是的. 这只是特化了某一族的$\varepsilon$.
+             \item 是的. 这是特化了某一族的$\delta$.
+         \end{enumerate}
+     \end{solution}
+
+     \begin{exercise}
+         下列几种叙述能否作为函数极限$\lim_{x\to a}f(x)=A$的等价定义?
+         \begin{enumerate}
+             \item $\exists\, \delta>0, \forall\, \varepsilon>0, \forall\, x \in O_\delta(a)-\{a\}, \text{成立}|f(x)-A|<\varepsilon$;
+             \item $\forall\, \delta>0, \exists\, \varepsilon>0, \forall\, x \in O_\delta(a)-\{a\}, \text{成立}|f(x)-A|<\varepsilon$;
+             \item 当$x$充分靠近$a$时, $f(x)$越来越靠近$A$.
+         \end{enumerate}
+     \end{exercise}
+     \begin{solution}
+         \begin{enumerate}
+             \item 不等价, 但是更加严格. 这种情况下是在$a$附近的某个去心邻域中的$f(x)$都等于$A$.
+             \item 不等价, 这个叙述无法得到$f(x)$在$a$处以$A$为极限的结论. 这个叙述只说明了对于任何邻域$f(x)$和$A$的差距都是有限数, 但不一定是0.
+             \item 不等价. 越来越接近同样也不表现出趋向零这一性质.
+         \end{enumerate}
+     \end{solution}

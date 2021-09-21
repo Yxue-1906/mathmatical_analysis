@@ -28,7 +28,21 @@
      \end{solution}
 
      \begin{wrapfigure}{r}{3.5cm}
-         \includegraphics[width=3.5cm]{Picture/3.1/图一.png}
+         \begin{tikzpicture}[scale=2]
+             \draw[step=0.2, gray, very thin] (-1.05,-1.05) grid (1.05,1.05);
+             \draw [->] (-1.1,0) -- (1.1,0);
+             \draw [->] (0,-1.1) -- (0,1.1);
+             \coordinate (A) at (1,1);
+             \coordinate (B) at (-0.5,0.25);
+             \fill[blue] (A) circle (1pt);
+             \fill[blue] (B) circle (1pt);
+             \draw[blue, very thick] (-0.5,0.25) node[anchor=south] {$(-\frac{1}{2},\frac{1}{4})$} parabola bend (0,0) (1,1) node[anchor=south] {$(1,1)$};
+             \draw[blue] (0,0.7) node[scale=1.5, anchor=west] {$y=x^2$};
+             \foreach \x in {-1, 1}
+                \draw[very thick] (\x,1pt) -- (\x,-1pt) node[scale=1.2, anchor=north, fill=white] {$\x$};
+             \foreach \y in {-1,1}
+                \draw[very thick] (1pt,\y) -- (-1pt,\y) node[scale=1.2, anchor=east, fill=white] {$\y$};
+         \end{tikzpicture}
          \caption{}
      \end{wrapfigure}
      \begin{exercise}

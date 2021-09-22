@@ -1,8 +1,9 @@
 \documentclass[cn,chinese,fontset]{elegantbook}
-\usepackage{wrapfig,tikz}
+\usepackage{wrapfig,tikz,tasks}
 \everymath{\displaystyle}
 % to avoid elements being cramped in \frac command
 \newcommand\ddfrac[2]{\frac{\displaystyle #1}{\displaystyle #2}}
+\settasks{label=\color{structurecolor}(\arabic*)}
 
 \begin{document}
 \tableofcontents

@@ -27,68 +27,58 @@
          由收敛定义可知无论多小的$\varepsilon>0$都$\exists\,N\in N_+\,s.t.\,n>N,\beta-x_n<\varepsilon\Rightarrow\beta-\varepsilon<x_n$.这就是上确界定义.
      \end{solution}
 
-     \begin{wrapfigure}{r}{3.5cm}
-         \begin{tikzpicture}[scale=2]
-             \draw[step=0.2, gray, very thin] (-1.05,-1.05) grid (1.05,1.05);
-             \draw [->] (-1.1,0) -- (1.1,0);
-             \draw [->] (0,-1.1) -- (0,1.1);
-             \coordinate (A) at (1,1);
-             \coordinate (B) at (-0.5,0.25);
-             \fill[blue] (A) circle (1pt);
-             \fill[blue] (B) circle (1pt);
-             \draw[blue, very thick] (-0.5,0.25) node[anchor=south] {$(-\frac{1}{2},\frac{1}{4})$} parabola bend (0,0) (1,1) node[anchor=south] {$(1,1)$};
-             \draw[blue] (0,0.7) node[scale=1.5, anchor=west] {$y=x^2$};
-             \foreach \x in {-1, 1}
-                \draw[very thick] (\x,1pt) -- (\x,-1pt) node[scale=1.2, anchor=north, fill=white] {$\x$};
-             \foreach \y in {-1,1}
-                \draw[very thick] (1pt,\y) -- (-1pt,\y) node[scale=1.2, anchor=east, fill=white] {$\y$};
-         \end{tikzpicture}
-         \caption{}
-     \end{wrapfigure}
      \begin{exercise}
          求下列数集的上确界和下确界:
-         \begin{enumerate}
-             \item $\{x\in Q\,\lvert\, x>0\};$
-                   \begin{solution}
-                       显然下确界是0,上确界是$+\infty$.
-                   \end{solution}
-             \item $\{y\,\lvert\, y=x^2,x\in(-\frac{1}{2},1)\};$
-                   \begin{solution}
-                       如右图所示,下确界为0,上确界为1.
-                   \end{solution}
-             \item $\left\{\left(1+\frac{1}{n}\right)^n \,\bigg\lvert\, n\in N_+\right\};$
-                   \begin{solution}
-                       下确界为2,上确界为$e$.
-
-                       前已证$\left(1+\frac{1}{n}\right)^n$单调递增且极限为$e$.
-                   \end{solution}
-             \item $\{ne^{-n}\,\lvert\, n\in N_+\};$
-                   \begin{solution}
-                       前后两项的比值为$\frac{1}{e}\cdot\frac{n+1}{n}<\frac{2}{e}<1$,故数列$\left\{\frac{n}{e^n}\right\}$单调递减.而且上一章已证$\left\{\frac{n^q}{p^n}\right\}\to 0(p>1)$,所以下确界为0,上确界为$\frac{1}{e}$.
-                   \end{solution}
-             \item $\{\arctan x \,\lvert\, x\in (-\infty,+\infty)\};$
-                   \begin{solution}
-                       上下确界为$\pm \frac{\pi}{2}$.下证上确界.
-
-                       由于$\arctan x$值域在$\left(-\frac{\pi}{2},\frac{\pi}{2}\right)$,而$\tan x$在此集合上单调增,故对任意小的$\varepsilon$,欲使$\arctan n>\frac{\pi}{2}-\varepsilon$,只需$\tan(\arctan n)=n>\tan\left(\frac{\pi}{2}-\varepsilon\right)$即可.
-
-                   \end{solution}
-             \item $\left\{(-1)^n+\frac{1}{n}(-1)^{n+1}\,\biggl\lvert\, n\in N_+\right\};$
-                   \begin{solution}
-                       上下确界为$\pm 1$.
-
-                       从感性可以认知到集合中的数从中间向外边(-1和1)扩,对于任意小的$\varepsilon$,只需取$n$使$\frac{1}{n}<\varepsilon$即可.
-                   \end{solution}
-             \item $\left\{1+n\sin\frac{n\pi}{2}\,\bigg\lvert\, n\in N_+\right\}$.
-                   \begin{solution}
-                       上下确界为$\pm \infty$.
-
-                       无论多大的M,都存在$n>M$且为$4k+1$(k为正整数)使$1+n\sin\frac{n\pi}{2}=1+n>M$;
-
-                       同理也存在$n>-M-10$且为$4k+3$(k为正整数)使$1+n\sin\frac{n\pi}{2}=1-n<M$.
-                   \end{solution}
-         \end{enumerate}
+         \begin{tasks}(2)
+             \task $\{x\in Q\,\lvert\, x>0\};$
+             \task $\{y\,\lvert\, y=x^2,x\in(-\frac{1}{2},1)\};$
+             \task $\left\{\left(1+\frac{1}{n}\right)^n \,\bigg\lvert\, n\in N_+\right\};$
+             \task $\{ne^{-n}\,\lvert\, n\in N_+\};$
+             \task $\{\arctan x \,\lvert\, x\in (-\infty,+\infty)\};$
+             \task $\left\{(-1)^n+\frac{1}{n}(-1)^{n+1}\,\biggl\lvert\, n\in N_+\right\};$
+             \task $\left\{1+n\sin\frac{n\pi}{2}\,\bigg\lvert\, n\in N_+\right\}$.
+         \end{tasks}
      \end{exercise}
+     \begin{wrapfigure}{r}{3.5cm}
+        \begin{tikzpicture}[scale=2]
+            \draw[step=0.2, gray, very thin] (-1.05,-1.05) grid (1.05,1.05);
+            \draw [->] (-1.1,0) -- (1.1,0);
+            \draw [->] (0,-1.1) -- (0,1.1);
+            \coordinate (A) at (1,1);
+            \coordinate (B) at (-0.5,0.25);
+            \fill[blue] (A) circle (1pt);
+            \fill[blue] (B) circle (1pt);
+            \draw[blue, very thick] (-0.5,0.25) node[anchor=south] {$(-\frac{1}{2},\frac{1}{4})$} parabola bend (0,0) (1,1) node[anchor=south] {$(1,1)$};
+            \draw[blue] (0,0.7) node[scale=1.5, anchor=west] {$y=x^2$};
+            \foreach \x in {-1, 1}
+            \draw[very thick] (\x,1pt) -- (\x,-1pt) node[scale=1.2, anchor=north, fill=white] {$\x$};
+            \foreach \y in {-1,1}
+            \draw[very thick] (1pt,\y) -- (-1pt,\y) node[scale=1.2, anchor=east, fill=white] {$\y$};
+        \end{tikzpicture}
+        \caption{}
+    \end{wrapfigure}
+     \begin{solution}
+         \begin{enumerate}
+             \item  显然下确界是0,上确界是$+\infty$.
+             \item 如右图所示,下确界为0,上确界为1.
+             \item 下确界为2,上确界为$e$.
+
+                   前已证$\left(1+\frac{1}{n}\right)^n$单调递增且极限为$e$.
+             \item 前后两项的比值为$\frac{1}{e}\cdot\frac{n+1}{n}<\frac{2}{e}<1$,故数列$\left\{\frac{n}{e^n}\right\}$单调递减.而且上一章已证$\left\{\frac{n^q}{p^n}\right\}\to 0(p>1)$,所以下确界为0,上确界为$\frac{1}{e}$.
+             \item 上下确界为$\pm \frac{\pi}{2}$.下证上确界.
+
+                   由于$\arctan x$值域在$\left(-\frac{\pi}{2},\frac{\pi}{2}\right)$,而$\tan x$在此集合上单调增,故对任意小的$\varepsilon$,欲使$\arctan n>\frac{\pi}{2}-\varepsilon$,只需$\tan(\arctan n)=n>\tan\left(\frac{\pi}{2}-\varepsilon\right)$即可.
+             \item 上下确界为$\pm 1$.
+
+                   从感性可以认知到集合中的数从中间向外边(-1和1)扩,对于任意小的$\varepsilon$,只需取$n$使$\frac{1}{n}<\varepsilon$即可.
+             \item 上下确界为$\pm \infty$.
+
+                   无论多大的M,都存在$n>M$且为$4k+1$(k为正整数)使$1+n\sin\frac{n\pi}{2}=1+n>M$;
+
+                   同理也存在$n>-M-10$且为$4k+3$(k为正整数)使$1+n\sin\frac{n\pi}{2}=1-n<M$.
+         \end{enumerate}
+
+     \end{solution}
 
      \begin{exercise}
          证明:

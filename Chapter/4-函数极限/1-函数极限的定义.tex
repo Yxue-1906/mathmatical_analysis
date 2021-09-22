@@ -33,3 +33,42 @@
              \item 不等价. 越来越接近同样也不表现出趋向零这一性质.
          \end{enumerate}
      \end{solution}
+
+     \begin{exercise}
+         用对偶法则给出:
+         \begin{enumerate}
+             \item "$f(x)$在点$a$不收敛于$A$"的正面叙述;
+             \item "$f(x)$在点$a$处没有极限"的正面叙述.
+         \end{enumerate}
+     \end{exercise}
+     \begin{solution}
+         \begin{enumerate}
+             \item "$f(x)$在点$a$处收敛于$A$"的叙述是:$\forall\, \varepsilon>0, \exists\, \delta>0, \forall\, x\in O_\delta(a)-\{a\}\Rightarrow |f(x)-A|<\varepsilon$.
+
+                   运用对偶法则可以得到: $\exists\, \varepsilon>0, \forall\, \delta>0,\exists\, x\in O_\delta(a)-\{a\}\Rightarrow |f(x)-A|\geqslant \varepsilon$.
+             \item "$f(x)$在点$a$处有极限"的叙述是:$\exists\, A\in \mathbb{R}, \cdots$,
+
+                   运用对偶法则得到: $\forall\, A\in \mathbb{R}, \cdots$(两处省略是上一问中对应叙述).
+         \end{enumerate}
+     \end{solution}
+
+     \begin{exercise}
+         怎样用正面方式叙述下列否定性概念:
+         \begin{tasks}
+             (2)
+             \task $\lim_{x\to \infty}f(x)\neq A$;
+             \task $\lim_{x\to -\infty}f(x)\neq A$;
+             \task $\lim_{x\to a}f(x)\neq \infty$;
+             \task $\lim_{x\to a^-}f(x)\neq A$;
+             \task $\lim_{x\to a^+}f(x)\neq +\infty$;
+         \end{tasks}
+     \end{exercise}
+     \begin{solution}
+         \begin{enumerate}
+             \item $\exists\, \varepsilon>0, \forall\, M>0, \exists\, |x|>M, |f(x)-A|\geqslant \varepsilon$;
+             \item $\exists\, \varepsilon>0, \forall\, M<0, \exists\, x<M, |f(x)-A|\geqslant \varepsilon$;
+             \item $\exists\, M, \forall\, \delta>0, \exists\, x\in O_\delta(a)-\{a\}, |f(x)-A|\leqslant  M$;
+             \item $\exists\, \varepsilon, \forall\, \delta>0, \exists\, x\in [a-\delta,a), |f(x)-A|\geqslant A$;
+             \item $\exists\, M>0, \forall\, \delta>0, \exists\, x\in (a,a+\delta], f(x)\leqslant M$.
+         \end{enumerate}
+     \end{solution}
